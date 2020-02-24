@@ -1,0 +1,69 @@
+{
+  "name": "stake-commander",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
+    "formik": "^2.1.2",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.4",
+    "mobx-utils": "^5.5.3",
+    "node-sass": "^4.13.1",
+    "rc-slider": "^9.2.1",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-bootstrap-icons": "^1.0.0-alpha2",
+    "react-dom": "^16.12.0",
+    "react-icons": "^3.9.0",
+    "react-lazyload": "^2.6.5",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-toggle": "^4.1.1",
+    "web3": "^1.2.5",
+    "yup": "^0.28.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "TZ=UTC react-scripts test",
+    "eject": "react-scripts eject",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "coveralls": "^3.0.9"
+  },
+  "resolutions": {
+    "react-dev-utils": "10.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/serviceWorker.js",
+      "!src/setupTests.js",
+      "!src/index.js",
+      "!src/contract-registy.js",
+      "!src/config.json"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WithdrawDashboard /> should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="panel row"
+  >
+    <div
+      class="col"
+    >
+      <div
+        class="mt-5 tokens-row row"
+      >
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Policy rewards
+          </p>
+          <p
+            class="h4 text-center"
+          />
+          <div
+            class="action d-flex justify-content-center"
+          >
+            <button
+              class="button-action mt-2 btn btn-secondary"
+              type="button"
+            >
+              Withdraw
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-5 tokens-row row"
+      >
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Rewards
+          </p>
+          <div
+            class="text-center d-flex justify-content-center"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

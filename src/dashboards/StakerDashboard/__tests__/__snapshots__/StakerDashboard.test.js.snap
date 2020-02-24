@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StakerDashboard /> should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="panel row"
+  >
+    <div
+      class="col"
+    >
+      <h2
+        class="text-center"
+      >
+        Welcome back, 
+      </h2>
+      <div
+        class="mt-5 row"
+      >
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Current period
+          </p>
+          <p
+            class="h4 text-center"
+          >
+            18945
+          </p>
+        </div>
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Next period in
+          </p>
+          <p
+            class="h4 text-center"
+          >
+            1 hours
+          </p>
+        </div>
+      </div>
+      <div
+        class="mt-5 tokens-row row"
+      >
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Tokens staked
+          </p>
+          <p
+            class="h4 text-center"
+          >
+             
+            <br />
+            NU
+          </p>
+          <div
+            class="action d-flex justify-content-center"
+          >
+            <button
+              class="button-action mt-2 btn btn-primary"
+              type="button"
+            >
+              Add stake
+            </button>
+          </div>
+        </div>
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Total rewards
+          </p>
+          <p
+            class="h4 text-center"
+          >
+             
+            <br />
+            NU
+          </p>
+        </div>
+        <div
+          class="col"
+        >
+          <p
+            class="h6 text-center"
+          >
+            Available for withdrawal
+          </p>
+          <p
+            class="h4 text-center"
+          >
+             
+            <br />
+            NU
+          </p>
+          <div
+            class="action d-flex justify-content-center"
+          >
+            <button
+              class="button-action mt-2 btn btn-secondary"
+              type="button"
+            >
+              Withdraw
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-5 row"
+      />
+      <div
+        class="mt-5 row"
+      />
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    />
+  </div>
+</DocumentFragment>
+`;

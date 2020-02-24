@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HistoryDashboard /> should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="w-100 row"
+    >
+      <div
+        class="col-md-12"
+      >
+        <div
+          class="p-3 table"
+        >
+          <div
+            class="table-row table-header"
+          >
+            <div
+              class="table-row-column table-row-index"
+            >
+              Block #
+            </div>
+            <div
+              class="table-row-column table-center w-100"
+            >
+              Action
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
