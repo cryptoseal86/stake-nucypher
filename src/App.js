@@ -20,8 +20,6 @@ class App extends PureComponent {
   state = {
     key: 'stake'
   };
-  async componentDidMount() {
-  }
 
   handleSelectTab(key) {
     this.setState({ key });

@@ -160,7 +160,7 @@ function StakerDashboard(props) {
             <Col>
               <p className="h6 text-center">Available for withdrawal</p>
               <p className="h4 text-center">{store.stakerStore.staker ? toUiNumberOfTokens(store.stakerStore.staker.availableForWithdraw) : null} <br />NU</p>
-              <div className="action d-flex justify-content-center"><Button variant="secondary" className="button-action mt-2" onClick={onTabChange.bind(this, 'withdraw')}>Withdraw</Button></div>
+              <div className="action d-flex justify-content-center"><Button data-testid="withdraw-switch-button" variant="secondary" className="button-action mt-2" onClick={onTabChange.bind(this, 'withdraw')}>Withdraw</Button></div>
             </Col>
           </Row>
           <Row className="mt-5">
@@ -173,6 +173,7 @@ function StakerDashboard(props) {
                       <div className="h4 text-center">
                         { !busySetRestaking ? <>
                           <Toggle
+                            data-testid="restaking-toggle"
                             checked={!store.stakerStore.staker.reStakeDisabled}
                             onChange={toggleRestaking}>
                           </Toggle>
@@ -195,6 +196,7 @@ function StakerDashboard(props) {
                   <div className="h4 text-center">
                     { !busySetWindDown ? <>
                       <Toggle
+                        data-testid="winddown-toggle"
                         checked={store.stakerStore.staker.windDown}
                         onChange={toggleWindDown}>
                       </Toggle>

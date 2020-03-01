@@ -21,4 +21,9 @@ describe('<App />', () => {
     });
   });
 
+  it('should be able to switch tab', async () => {
+    const { getByTestId, asFragment } = render(<App />);
+    fireEvent.click(getByTestId('withdraw-switch-button'));
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
