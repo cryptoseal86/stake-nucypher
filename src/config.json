@@ -1,6 +1,6 @@
 {
-  "stakingEscrowAddress": "0xdc098916291e1ef683a4f469fa32025c872194df",
-  "tokenAddress": "0xa59820b4c01a3c3869554db0243a02bca7b15730",
-  "policyManagerAddress": "0x1A0bA37398f2476F533Ae2ab622A79E310AA7680",
-  "workLockAddress": "0xe2Be5ee9F5F45dB5CFa22658cc20d7ebcc44F46c"
+  "stakingEscrowAddress": "0xd3c9eD88B19D37E78cD4c344699837DDFd0F1F5B",
+  "tokenAddress": "0x1F805c93A0AA3Ef7D17C43B7D2b316D101722F21",
+  "policyManagerAddress": "0xF1Fe01eb9dfDb1F43BEd97923E96176526525EF4",
+  "workLockAddress": "0x3ACBb734d2Cc0FDd366BC50f19aBf84C8E5C4822"
 }

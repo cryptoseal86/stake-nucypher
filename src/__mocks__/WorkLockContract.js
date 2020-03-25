@@ -57,13 +57,6 @@ const contract = {
         })
       };
     }),
-    ethSupply: jest.fn((value) => {
-      return {
-        call: jest.fn(() => {
-          return Promise.resolve(Web3.utils.toWei('1000'));
-        })
-      };
-    }),
     tokenSupply: jest.fn((value) => {
       return {
         call: jest.fn(() => {
@@ -92,6 +85,20 @@ const contract = {
         })
       };
     }),
+    getAvailableRefund: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(Web3.utils.toWei('20000'));
+        })
+      };
+    }),
+    ethToTokens: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(Web3.utils.toWei('20000'));
+        })
+      };
+    })
   }
 };
 

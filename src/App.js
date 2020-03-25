@@ -37,11 +37,11 @@ class App extends PureComponent {
             </Navbar.Brand>
             <div className="mr-sm-2">
               <DropdownButton
-                title="Cassandra"
+                title="Gemini"
                 variant="secondary"
                 className="d-inline-block network-selector"
               >
-                <Dropdown.Item eventKey="cassandra">Cassandra</Dropdown.Item>
+                <Dropdown.Item eventKey="cassandra">Gemini</Dropdown.Item>
               </DropdownButton>
             </div>
           </Navbar>

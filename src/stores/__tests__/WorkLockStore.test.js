@@ -10,6 +10,7 @@ describe('WorkLockStore', () => {
   let workLockContract;
   let web3;
   let account;
+
   beforeAll(async () => {
     await Web3Initilizer.initialize();
     web3 = Web3Initilizer.getWeb3();
@@ -53,6 +54,8 @@ describe('WorkLockStore', () => {
   });
 
   it('should be able to get worklock status correctly', async () => {
+    const origGetTime = Date.prototype.getTime;
+    Date.prototype.getTime = () => 1583000000000;
     // in progress
     await workLockStore.init();
     expect(workLockStore.workLockStatus()).toBe('in_progress');
@@ -68,6 +71,7 @@ describe('WorkLockStore', () => {
     workLockContract.endBidDate = 2512387602;
     await workLockStore.init();
     expect(workLockStore.workLockStatus()).toBe('not_started');
+    Date.prototype.getTime = origGetTime;
   });
 
   it('should be able to get remaining work', async () => {

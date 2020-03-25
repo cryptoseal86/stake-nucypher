@@ -5,12 +5,10 @@ import Web3Initilizer from '../web3Initializer';
 
 class WorkLockStore {
 
-  #ethSupplyListener = null;
   startBidDate = null;
   endBidDate = null;
   stakingPeriods = null;
   tokenSupply = null;
-  ethSupply = null;
   workInfo = null;
   inited = false;
   unlockedEth = null;
@@ -22,8 +20,8 @@ class WorkLockStore {
     await this.getWorkInfo();
     await this.getStartBidDate();
     await this.getEndBidDate();
-    await this.getEthSupply();
     await this.getTokenSupply();
+    this.claimAmount = await this.ethToTokens(this.workInfo.depositedETH);
     this.inited = true;
   }
 
@@ -54,8 +52,11 @@ class WorkLockStore {
     return await workLockContract.methods.ethToTokens(ethAmount).call();
   }
 
-  async getUnlockedEth(completedWork) {
-    this.unlockedEth = await this.workToEth(BN(completedWork).minus(this.workInfo ? this.workInfo.completedWork : 0).toFixed());
+  async getUnlockedEth() {
+    const web3 = Web3Initilizer.getWeb3();
+    const address = (await web3.eth.getAccounts())[0];
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.unlockedEth = await workLockContract.methods.getAvailableRefund(address).call();
   }
 
   // for testing purpose
@@ -108,12 +109,6 @@ class WorkLockStore {
     });
   }
 
-  async getEthSupply() {
-    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
-    const web3 = Web3Initilizer.getWeb3();
-    this.ethSupply = await workLockContract.methods.ethSupply().call();
-  }
-
   async getTokenSupply() {
     const workLockContract = Web3Initilizer.getWorkLockContractInstance();
     this.tokenSupply = await workLockContract.methods.tokenSupply().call();
@@ -133,7 +128,7 @@ class WorkLockStore {
 }
 
 export default decorate(WorkLockStore, {
-  ethSupply: observable,
   workInfo: observable,
+  claimAmount: observable,
   unlockedEth: observable
 });

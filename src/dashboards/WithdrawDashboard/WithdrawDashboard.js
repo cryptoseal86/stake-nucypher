@@ -31,7 +31,7 @@ function WithdrawDashboard(props) {
         }
         if (store.stakerStore.completedWork && !store.workLockStore.unlockedEth) {
           await store.workLockStore.getWorkInfo();
-          await store.workLockStore.getUnlockedEth(store.stakerStore.completedWork);
+          await store.workLockStore.getUnlockedEth();
         }
       }
     })();

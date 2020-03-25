@@ -37,7 +37,7 @@ function WorkLockDashboard(props) {
 
   const onClaim = async () => {
     setBusyClaim(true);
-    store.workLockStore.claim();
+    await store.workLockStore.claim();
     setBusyClaim(false);
   };
 
@@ -56,7 +56,6 @@ function WorkLockDashboard(props) {
       })();
     }
   });
-  const currentRate = store.workLockStore.ethSupply !== '0' ? BN(store.workLockStore.ethSupply).div(store.workLockStore.tokenSupply).toFixed() : null;
   const startDate = new Date();
   startDate.setTime(store.workLockStore.startBidDate * 1000);
   const endDate = new Date();
@@ -65,21 +64,12 @@ function WorkLockDashboard(props) {
   return store.web3Initilized && !loading ? (<div className="worklock-contrainer">
     <Row>
       <Col md={4}>
-        <p className="text-center h6">Total ETH supplied</p>
-        { store.workLockStore.ethSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.ethSupply) } <br / >ETH</p> : null }
       </Col>
       <Col md={4}>
-        {
-          currentRate && !isNaN(currentRate) ? <>
-            <p className="text-center h6">Current rate</p>
-            { currentRate !== '0' ? <p className="text-center h4">1 ETH = {BN(1).div(currentRate).toFixed(4)} NU</p> : null }
-            <p className="small text-center text-muted">Warning! This rate is dynamic and will be fixed only after worklock end</p>
-          </> : null
-        }
-      </Col>
-      <Col md={{ span: 4 }}>
         <p className="text-center h6">Total NU to distribute</p>
         { store.workLockStore.tokenSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.tokenSupply) } <br /> NU</p> : null }
+      </Col>
+      <Col md={{ span: 4 }}>
       </Col>
     </Row>
     {
@@ -101,10 +91,10 @@ function WorkLockDashboard(props) {
                   </div>
                 </Col>
                 {
-                  store.workLockStore.workInfo.depositedETH !== '0' && !isNaN(currentRate) ? <>
+                  store.workLockStore.workInfo.depositedETH !== '0' ? <>
                     <Col>
                       <p className="h6 text-center">Your claim</p>
-                      <p className="h4 text-center">{toUiNumberOfTokens(BN(store.workLockStore.workInfo.depositedETH).div(currentRate).toFixed(0))} NU</p>
+                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} NU</p>
                       <p className="small text-center text-muted">Warning! Available claim value may fluctuate until bidding closes and claims are finalized</p>
                     </Col>
                   </> : null
@@ -139,10 +129,10 @@ function WorkLockDashboard(props) {
                   </div>
                 </Col>
                 {
-                  store.workLockStore.workInfo.depositedETH !== '0' && !isNaN(currentRate) ? <>
+                  store.workLockStore.workInfo.depositedETH !== '0' ? <>
                     <Col className="mt-2">
                       <p className="h6 text-center">Available for claim</p>
-                      <p className="h4 text-center">{ !store.workLockStore.workInfo.claimed ? toUiNumberOfTokens(BN(store.workLockStore.workInfo.depositedETH).div(currentRate).toFixed(0)) : toUiNumberOfTokens(0) } NU</p>
+                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} NU</p>
                       <p className="small text-center text-muted">Warning! Claiming WorkLock NU tokens will initialize a new stake</p>
                       <div className="action d-flex justify-content-center">
                         { store.workLockStore.workInfo.depositedETH !== '0' && !store.workLockStore.workInfo.claimed ?
