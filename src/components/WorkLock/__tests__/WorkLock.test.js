@@ -14,11 +14,11 @@ describe('<WorkLock />', () => {
     const { getByLabelText, getByText } = render(<WorkLock onBid={onBid} />);
 
     await wait(() => {
-      fireEvent.change(getByLabelText('ETH amount'), { target: { value: '6' } });
+      fireEvent.change(getByLabelText('ETH amount'), { target: { value: 6 } });
       fireEvent.click(getByText('Bid'));
     });
 
-    expect(onBid).toBeCalledWith(expect.objectContaining({ bidValue: '6' }));
+    expect(onBid).toBeCalledWith(expect.objectContaining({ bidValue: 6 }));
   });
 
   it('should validate input from user correctly', async () => {

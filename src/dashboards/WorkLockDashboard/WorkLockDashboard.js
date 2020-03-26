@@ -21,17 +21,9 @@ function WorkLockDashboard(props) {
   const [loading, setLoading] = useState();
   const [busyCancel, setBusyCancel] = useState(false);
   const [busyClaim, setBusyClaim] = useState(false);
-  const onEthValueChange = (event) => {
-    try {
-      const value = event.target.value;
-      const weiValue = Web3.utils.toWei(value);
-    } catch(e) {
-
-    }
-  };
 
   const onBid = (event) => {
-    const ethValue = Web3.utils.toWei(event.bidValue);
+    const ethValue = Web3.utils.toWei(event.bidValue.toString());
     store.workLockStore.bid(ethValue);
   };
 
@@ -61,15 +53,19 @@ function WorkLockDashboard(props) {
   const endDate = new Date();
   endDate.setTime(store.workLockStore.endBidDate * 1000);
 
+  const minBidAmount = store.workLockStore.minAllowedBid ? Web3.utils.fromWei(store.workLockStore.minAllowedBid.toString()) : null;
+
   return store.web3Initilized && !loading ? (<div className="worklock-contrainer">
     <Row>
       <Col md={4}>
+        <p className="text-center h6">Total ETH supplied</p>
+        { store.workLockStore.tokenSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.ethSupply) } <br /> ETH</p> : null }
       </Col>
       <Col md={4}>
-        <p className="text-center h6">Total NU to distribute</p>
-        { store.workLockStore.tokenSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.tokenSupply) } <br /> NU</p> : null }
       </Col>
       <Col md={{ span: 4 }}>
+        <p className="text-center h6">Total NU to distribute</p>
+        { store.workLockStore.tokenSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.tokenSupply) } <br /> NU</p> : null }
       </Col>
     </Row>
     {
@@ -83,7 +79,7 @@ function WorkLockDashboard(props) {
               { store.workLockStore.workInfo ? <>
                 <Col>
                   <p className="h6 text-center">Your total bid</p>
-                  <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)}</p>
+                  <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)} <br /> ETH</p>
                   <div className="action d-flex justify-content-center">
                     { store.workLockStore.workInfo.depositedETH !== '0' ?
                       <>{ !busyCancel ? <Button onClick={onBidCancel}>Cancel bid</Button> : <Loading size={20}></Loading> }</>
@@ -94,7 +90,7 @@ function WorkLockDashboard(props) {
                   store.workLockStore.workInfo.depositedETH !== '0' ? <>
                     <Col>
                       <p className="h6 text-center">Your claim</p>
-                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} NU</p>
+                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
                       <p className="small text-center text-muted">Warning! Available claim value may fluctuate until bidding closes and claims are finalized</p>
                     </Col>
                   </> : null
@@ -103,7 +99,7 @@ function WorkLockDashboard(props) {
             </Row>
             <Row className="mt-4">
               <Col md={12} className="m-2 d-flex justify-content-center">
-                <WorkLock onBid={onBid} onEthValueChange={onEthValueChange}></WorkLock>
+                <WorkLock onBid={onBid} minBid={minBidAmount}></WorkLock>
               </Col>
             </Row>
           </Container>

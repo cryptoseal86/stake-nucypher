@@ -21,13 +21,17 @@ exports[`<WorkLock /> should render correctly 1`] = `
           class="form-control form-control-bg"
           id="bid-value"
           name="bidValue"
-          type="text"
+          type="number"
           value="0"
         />
         <div
-          class="invalid-feedback"
-          style="display: none;"
-        />
+          class="feedback-placeholder"
+        >
+          <div
+            class="invalid-feedback"
+            style="display: none;"
+          />
+        </div>
       </div>
     </div>
     <div
@@ -65,14 +69,18 @@ exports[`<WorkLock /> should validate input from user correctly 1`] = `
           class="form-control form-control-bg"
           id="bid-value"
           name="bidValue"
-          type="text"
+          type="number"
           value=""
         />
         <div
-          class="invalid-feedback"
-          style="display: inline;"
+          class="feedback-placeholder"
         >
-          Field is required.
+          <div
+            class="invalid-feedback"
+            style="display: inline;"
+          >
+            Field is required.
+          </div>
         </div>
       </div>
     </div>

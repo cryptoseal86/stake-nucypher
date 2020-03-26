@@ -10,6 +10,15 @@ exports[`<WorkLockDashboard /> should render correctly 1`] = `
     >
       <div
         class="col-md-4"
+      >
+        <p
+          class="text-center h6"
+        >
+          Total ETH supplied
+        </p>
+      </div>
+      <div
+        class="col-md-4"
       />
       <div
         class="col-md-4"
@@ -20,9 +29,6 @@ exports[`<WorkLockDashboard /> should render correctly 1`] = `
           Total NU to distribute
         </p>
       </div>
-      <div
-        class="col-md-4"
-      />
     </div>
     <div
       class="panel row"

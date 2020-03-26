@@ -98,7 +98,28 @@ const contract = {
           return Promise.resolve(Web3.utils.toWei('20000'));
         })
       };
-    })
+    }),
+    bonusETHSupply: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(Web3.utils.toWei('200'));
+        })
+      };
+    }),
+    getBiddersLength: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(200);
+        })
+      };
+    }),
+    minAllowedBid: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(Web3.utils.toWei('0.04'));
+        })
+      };
+    }),
   }
 };
 

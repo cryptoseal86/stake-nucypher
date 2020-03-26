@@ -12,6 +12,9 @@ class WorkLockStore {
   workInfo = null;
   inited = false;
   unlockedEth = null;
+  minAllowedBid = null;
+  biddersLength = null;
+  bonusEthSupply = null;
 
   constructor() {
   }
@@ -20,8 +23,12 @@ class WorkLockStore {
     await this.getWorkInfo();
     await this.getStartBidDate();
     await this.getEndBidDate();
+    await this.getBonusEthSupply();
     await this.getTokenSupply();
+    await this.getBiddersLength();
+    await this.getMinAllowedBid();
     this.claimAmount = await this.ethToTokens(this.workInfo.depositedETH);
+    this.ethSupply = BN(this.biddersLength).times(this.minAllowedBid).plus(this.bonusEthSupply).toFixed(0);
     this.inited = true;
   }
 
@@ -114,6 +121,21 @@ class WorkLockStore {
     this.tokenSupply = await workLockContract.methods.tokenSupply().call();
   }
 
+  async getBonusEthSupply() {
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.bonusEthSupply = await workLockContract.methods.bonusETHSupply().call();
+  }
+
+  async getBiddersLength() {
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.biddersLength = await workLockContract.methods.getBiddersLength().call();
+  }
+
+  async getMinAllowedBid() {
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.minAllowedBid = await workLockContract.methods.minAllowedBid().call();
+  }
+
   workLockStatus() {
     const currentTimestamp = (new Date().getTime() / 1000).toFixed(0);
     if (this.startBidDate > currentTimestamp) {
@@ -128,6 +150,7 @@ class WorkLockStore {
 }
 
 export default decorate(WorkLockStore, {
+  bonusEthSupply: observable,
   workInfo: observable,
   claimAmount: observable,
   unlockedEth: observable
