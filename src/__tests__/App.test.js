@@ -5,13 +5,16 @@ jest.mock('../web3Initializer');
 
 describe('<App />', () => {
 
-  const originalDate = Date.now;
+  const originalDateNow = Date.now;
+  const originalDateGetTime = Date.prototype.getTime;
   beforeAll(() => {
     Date.now = () => 1582581721708;
+    Date.prototype.getTime = () => 1582581721708;
   });
 
   afterAll(() => {
     Date.now = originalDate;
+    Date.prototype.getTime = originalDateGetTime;
   });
 
   it('should render correctly', async () => {

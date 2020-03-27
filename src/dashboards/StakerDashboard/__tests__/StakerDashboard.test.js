@@ -6,15 +6,18 @@ jest.mock('../../../web3Initializer');
 
 describe('<StakerDashboard />', () => {
 
-  const originalDate = Date.now;
+  const originalDateNow = Date.now;
+  const originalDateGetTime = Date.prototype.getTime;
   let escrowContract;
   beforeAll(() => {
-    Date.now = () => 1582581721708;
+    Date.now = () => 1582581711708;
+    Date.prototype.getTime = () => 1582581711708;
     escrowContract = Web3Initilizer.getContractInstance();
   });
 
   afterAll(() => {
-    Date.now = originalDate;
+    Date.now = originalDateNow;
+    Date.prototype.getTime = originalDateGetTime;
     jest.restoreMocks();
   });
 

@@ -41,7 +41,7 @@ exports[`<StakerDashboard /> should render correctly 1`] = `
           <p
             class="h4 text-center"
           >
-            1 hours
+            0 minutes
           </p>
         </div>
       </div>
@@ -177,7 +177,7 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
           <p
             class="h4 text-center"
           >
-            1 hours
+            0 minutes
           </p>
         </div>
       </div>
@@ -533,7 +533,7 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
                 <div
                   class="table-row-column table-center"
                 >
-                  Jan 24, 20 - Mar 27, 21
+                  Jan 24, 20 - Feb 24, 21
                 </div>
                 <div
                   class="table-row-column table-center"
@@ -796,7 +796,7 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
           <p
             class="h4 text-center"
           >
-            1 hours
+            0 minutes
           </p>
         </div>
       </div>
@@ -1152,7 +1152,7 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
                 <div
                   class="table-row-column table-center"
                 >
-                  Jan 24, 20 - Mar 27, 21
+                  Jan 24, 20 - Feb 24, 21
                 </div>
                 <div
                   class="table-row-column table-center"
