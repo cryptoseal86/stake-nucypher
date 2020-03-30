@@ -74,6 +74,20 @@ describe('WorkLockStore', () => {
     Date.prototype.getTime = origGetTime;
   });
 
+  it('should be able to get bid cancelabtion status correctly', async () => {
+    const origGetTime = Date.prototype.getTime;
+    Date.prototype.getTime = () => 1583000000000;
+    // in progress
+    await workLockStore.init();
+    expect(workLockStore.cancelationBidStatus()).toBe('in_progress');
+
+    // finished
+    workLockContract.cancelationBidDate = 502387602;
+    await workLockStore.init();
+    expect(workLockStore.cancelationBidStatus()).toBe('finished');
+    Date.prototype.getTime = origGetTime;
+  });
+
   it('should be able to get remaining work', async () => {
     const remainingWork = await workLockStore.getRemainingWork();
     expect(workLockContract.methods.getRemainingWork).toBeCalled();

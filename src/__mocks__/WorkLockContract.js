@@ -7,6 +7,7 @@ const workInfo = {
 const contract = {
   startBidDate: 1582387602,
   endBidDate: 1585000000,
+  cancelationBidDate: 1585000000,
   methods: {
     bid: jest.fn((value) => {
       return {
@@ -54,6 +55,13 @@ const contract = {
       return {
         call: jest.fn(() => {
           return Promise.resolve(getEndBidDate());
+        })
+      };
+    }),
+    endCancellationDate: jest.fn((value) => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(getCancelationBidDate());
         })
       };
     }),
@@ -129,6 +137,10 @@ function getStartBidDate() {
 
 function getEndBidDate() {
   return contract.endBidDate;
+}
+
+function getCancelationBidDate() {
+  return contract.cancelationBidDate;
 }
 
 export default contract;

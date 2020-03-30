@@ -81,7 +81,7 @@ function WorkLockDashboard(props) {
                   <p className="h6 text-center">Your total bid</p>
                   <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)} <br /> ETH</p>
                   <div className="action d-flex justify-content-center">
-                    { store.workLockStore.workInfo.depositedETH !== '0' ?
+                    { store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() !== 'finished' ?
                       <>{ !busyCancel ? <Button onClick={onBidCancel}>Cancel bid</Button> : <Loading size={20}></Loading> }</>
                     : null }
                   </div>
@@ -119,7 +119,7 @@ function WorkLockDashboard(props) {
                   <p className="h6 text-center">Your total bid</p>
                   <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)}</p>
                   <div className="action d-flex justify-content-center">
-                    { store.workLockStore.workInfo.depositedETH !== '0' ?
+                    { store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() !== 'finished' ?
                       <>{ !busyCancel ? <Button onClick={onBidCancel}>Cancel bid</Button> : <Loading size={20}></Loading> }</>
                     : null }
                   </div>

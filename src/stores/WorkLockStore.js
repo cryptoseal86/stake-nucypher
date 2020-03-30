@@ -7,6 +7,7 @@ class WorkLockStore {
 
   startBidDate = null;
   endBidDate = null;
+  endCancellationDate = null;
   stakingPeriods = null;
   tokenSupply = null;
   workInfo = null;
@@ -23,6 +24,7 @@ class WorkLockStore {
     await this.getWorkInfo();
     await this.getStartBidDate();
     await this.getEndBidDate();
+    await this.getEndCancellationDate();
     await this.getBonusEthSupply();
     await this.getTokenSupply();
     await this.getBiddersLength();
@@ -47,6 +49,11 @@ class WorkLockStore {
   async getEndBidDate() {
     const workLockContract = Web3Initilizer.getWorkLockContractInstance();
     this.endBidDate = await workLockContract.methods.endBidDate().call();
+  }
+
+  async getEndCancellationDate() {
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.endCancellationDate = await workLockContract.methods.endCancellationDate().call();
   }
 
   async workToEth(workAmount) {
@@ -145,7 +152,15 @@ class WorkLockStore {
     } else if (this.endBidDate > currentTimestamp && this.startBidDate < currentTimestamp) {
       return 'in_progress';
     }
-    return 'unknown';
+  }
+
+  cancelationBidStatus() {
+    const currentTimestamp = (new Date().getTime() / 1000).toFixed(0);
+    if (this.endCancellationDate >= currentTimestamp) {
+      return 'in_progress';
+    } else if (this.endCancellationDate < currentTimestamp) {
+      return 'finished';
+    }
   }
 }
 
