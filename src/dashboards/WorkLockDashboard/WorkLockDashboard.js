@@ -3,7 +3,6 @@ import Web3 from 'web3';
 import { observer } from 'mobx-react';
 import { decorate } from 'mobx';
 import { useStore } from '../../stores';
-import Web3Initilizer from '../../web3Initializer';
 import { Container, Row, Col, Table, Button } from 'react-bootstrap';
 import WorkLock from '../../components/WorkLock/WorkLock';
 import { toUiNumberOfTokens } from '../../utils/utils';
@@ -87,7 +86,7 @@ function WorkLockDashboard(props) {
                   </div>
                 </Col>
                 {
-                  store.workLockStore.workInfo.depositedETH !== '0' ? <>
+                  store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() === 'finished' ? <>
                     <Col>
                       <p className="h6 text-center">Your claim</p>
                       <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
@@ -125,7 +124,7 @@ function WorkLockDashboard(props) {
                   </div>
                 </Col>
                 {
-                  store.workLockStore.workInfo.depositedETH !== '0' ? <>
+                  store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() === 'finished' ? <>
                     <Col className="mt-2">
                       <p className="h6 text-center">Available for claim</p>
                       <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} NU</p>
