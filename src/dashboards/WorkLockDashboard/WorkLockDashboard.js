@@ -116,7 +116,7 @@ function WorkLockDashboard(props) {
               { store.workLockStore.workInfo ? <>
                 <Col>
                   <p className="h6 text-center">Your total bid</p>
-                  <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)}</p>
+                  <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)} <br /> ETH</p>
                   <div className="action d-flex justify-content-center">
                     { store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() !== 'finished' ?
                       <>{ !busyCancel ? <Button onClick={onBidCancel}>Cancel bid</Button> : <Loading size={20}></Loading> }</>
@@ -127,12 +127,13 @@ function WorkLockDashboard(props) {
                   store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() === 'finished' ? <>
                     <Col className="mt-2">
                       <p className="h6 text-center">Available for claim</p>
-                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} NU</p>
+                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
                       <p className="small text-center text-muted">Warning! Claiming WorkLock NU tokens will initialize a new stake</p>
                       <div className="action d-flex justify-content-center">
-                        { store.workLockStore.workInfo.depositedETH !== '0' && !store.workLockStore.workInfo.claimed ?
-                          <>{ !busyClaim ? <Button onClick={onClaim}>Claim</Button> : <Loading size={20}></Loading> }</>
-                        : null }
+                        <>{ !busyClaim ? <Button
+                            onClick={onClaim}
+                            disabled={!(store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.claimingAvailable && !store.workLockStore.workInfo.claimed)}
+                            >Claim</Button> : <Loading size={20}></Loading> }</>
                       </div>
                     </Col>
                   </> : null }
