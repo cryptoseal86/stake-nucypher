@@ -128,6 +128,13 @@ const contract = {
         })
       };
     }),
+    isClaimingAvailable: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve(false);
+        })
+      };
+    })
   }
 };
 

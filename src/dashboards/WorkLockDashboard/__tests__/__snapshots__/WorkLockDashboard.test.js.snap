@@ -19,7 +19,13 @@ exports[`<WorkLockDashboard /> should render correctly 1`] = `
       </div>
       <div
         class="col-md-4"
-      />
+      >
+        <p
+          class="text-center h6"
+        >
+          Bidders number
+        </p>
+      </div>
       <div
         class="col-md-4"
       >

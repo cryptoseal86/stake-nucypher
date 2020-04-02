@@ -61,6 +61,8 @@ function WorkLockDashboard(props) {
         { store.workLockStore.tokenSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.ethSupply) } <br /> ETH</p> : null }
       </Col>
       <Col md={4}>
+        <p className="text-center h6">Bidders number</p>
+        { store.workLockStore.biddersNumber ? <p className="text-center h4">{ store.workLockStore.biddersNumber }</p> : null }
       </Col>
       <Col md={{ span: 4 }}>
         <p className="text-center h6">Total NU to distribute</p>

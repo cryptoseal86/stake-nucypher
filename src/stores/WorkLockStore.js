@@ -17,6 +17,7 @@ class WorkLockStore {
   biddersLength = null;
   bonusEthSupply = null;
   claimingAvailable = null;
+  biddersNumber = null;
 
   constructor() {
   }
@@ -31,6 +32,7 @@ class WorkLockStore {
     await this.getBiddersLength();
     await this.getMinAllowedBid();
     await this.isClaimingAvailable();
+    await this.getBiddersNumber();
     this.claimAmount = await this.ethToTokens(this.workInfo.depositedETH);
     this.ethSupply = BN(this.biddersLength).times(this.minAllowedBid).plus(this.bonusEthSupply).toFixed(0);
     this.inited = true;
@@ -148,6 +150,11 @@ class WorkLockStore {
   async isClaimingAvailable() {
     const workLockContract = Web3Initilizer.getWorkLockContractInstance();
     this.claimingAvailable = await workLockContract.methods.isClaimingAvailable().call();
+  }
+
+  async getBiddersNumber() {
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.biddersNumber = await workLockContract.methods.getBiddersLength().call();
   }
 
   workLockStatus() {
