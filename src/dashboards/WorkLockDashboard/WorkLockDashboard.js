@@ -28,6 +28,9 @@ function WorkLockDashboard(props) {
 
   const onClaim = async () => {
     setBusyClaim(true);
+    if (store.workLockStore.availableCompensation !== '0') {
+      await store.workLockStore.withdrawCompensation();
+    }
     await store.workLockStore.claim();
     setBusyClaim(false);
   };

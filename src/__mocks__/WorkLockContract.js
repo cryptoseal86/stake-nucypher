@@ -134,6 +134,13 @@ const contract = {
           return Promise.resolve(false);
         })
       };
+    }),
+    compensation: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve('0');
+        })
+      };
     })
   }
 };

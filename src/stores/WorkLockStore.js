@@ -18,6 +18,7 @@ class WorkLockStore {
   bonusEthSupply = null;
   claimingAvailable = null;
   biddersNumber = null;
+  availableCompensation = null;
 
   constructor() {
   }
@@ -33,6 +34,7 @@ class WorkLockStore {
     await this.getMinAllowedBid();
     await this.isClaimingAvailable();
     await this.getBiddersNumber();
+    await this.getAvailableCompensation();
     this.claimAmount = await this.ethToTokens(this.workInfo.depositedETH);
     this.ethSupply = BN(this.biddersLength).times(this.minAllowedBid).plus(this.bonusEthSupply).toFixed(0);
     this.inited = true;
@@ -99,6 +101,13 @@ class WorkLockStore {
     });
   }
 
+  async getAvailableCompensation() {
+    const web3 = Web3Initilizer.getWeb3();
+    const address = (await web3.eth.getAccounts())[0];
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    this.availableCompensation = await workLockContract.methods.compensation(address).call();
+  }
+
   async cancelBid() {
     const workLockContract = Web3Initilizer.getWorkLockContractInstance();
     const web3 = Web3Initilizer.getWeb3();
@@ -114,6 +123,15 @@ class WorkLockStore {
     const web3 = Web3Initilizer.getWeb3();
     const address = (await web3.eth.getAccounts())[0];
     return await workLockContract.methods.claim().send({
+      from: address
+    });
+  }
+
+  async withdrawCompensation() {
+    const workLockContract = Web3Initilizer.getWorkLockContractInstance();
+    const web3 = Web3Initilizer.getWeb3();
+    const address = (await web3.eth.getAccounts())[0];
+    return await workLockContract.methods.withdrawCompensation().send({
       from: address
     });
   }
