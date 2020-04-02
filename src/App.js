@@ -48,6 +48,9 @@ class App extends PureComponent {
           <div className="App">
             <Switch>
               <Route exact path="/">
+                <div className="banner text-center">
+                  Worklock event is in progress. Follow the <a href="/worklock">link</a> to participate
+                </div>
                 <div className="staker-container">
                   <Container>
                     <Tabs defaultActiveKey="stake" activeKey={this.state.key} className="tab-controls d-flex mx-auto" onSelect={this.handleSelectTab.bind(this)}>

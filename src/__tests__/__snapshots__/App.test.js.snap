@@ -47,6 +47,17 @@ exports[`<App /> should be able to switch tab 1`] = `
     class="App"
   >
     <div
+      class="banner text-center"
+    >
+      Worklock event is in progress. Follow the 
+      <a
+        href="/worklock"
+      >
+        link
+      </a>
+       to participate
+    </div>
+    <div
       class="staker-container"
     >
       <div
@@ -1072,6 +1083,17 @@ exports[`<App /> should render correctly 1`] = `
   <div
     class="App"
   >
+    <div
+      class="banner text-center"
+    >
+      Worklock event is in progress. Follow the 
+      <a
+        href="/worklock"
+      >
+        link
+      </a>
+       to participate
+    </div>
     <div
       class="staker-container"
     >
