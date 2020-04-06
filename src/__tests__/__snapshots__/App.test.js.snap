@@ -754,7 +754,7 @@ exports[`<App /> should be able to switch tab 1`] = `
                         class="button-action mt-2 btn btn-secondary"
                         type="button"
                       >
-                        Withdraw
+                        Refund
                       </button>
                     </div>
                   </div>

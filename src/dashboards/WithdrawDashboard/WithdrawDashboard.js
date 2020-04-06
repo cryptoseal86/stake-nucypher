@@ -48,7 +48,7 @@ function WithdrawDashboard(props) {
               <p className="h6 text-center">Unlocked from WorkLock</p>
               <p className="h4 text-center">{ unlockedEth.value } <br /> { unlockedEth.unit }</p>
               <div className="text-center d-flex justify-content-center">{
-                <Button variant="secondary" className="button-action mt-2" disabled={ store.workLockStore.unlockedEth === '0'} onClick={refundWorkLock}>Withdraw</Button>
+                <Button variant="secondary" className="button-action mt-2" disabled={ store.workLockStore.unlockedEth === '0'} onClick={refundWorkLock}>Refund</Button>
               }</div>
             </Col>
           </> : null

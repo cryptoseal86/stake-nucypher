@@ -54,6 +54,36 @@ exports[`<WorkLockDashboard /> should render correctly 1`] = `
         <div
           class="mt-3 justify-content-center row"
         />
+        <div
+          class="mt-5 tokens-row row"
+        >
+          <div
+            class="col"
+          >
+            <p
+              class="h6 text-center"
+            >
+              Unlocked from WorkLock
+            </p>
+            <p
+              class="h4 text-center"
+            >
+              0 
+              <br />
+               wei
+            </p>
+            <div
+              class="text-center d-flex justify-content-center"
+            >
+              <button
+                class="button-action mt-2 btn btn-secondary"
+                type="button"
+              >
+                Refund
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

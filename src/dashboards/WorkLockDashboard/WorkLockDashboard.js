@@ -5,7 +5,7 @@ import { decorate } from 'mobx';
 import { useStore } from '../../stores';
 import { Container, Row, Col, Table, Button } from 'react-bootstrap';
 import WorkLock from '../../components/WorkLock/WorkLock';
-import { toUiNumberOfTokens } from '../../utils/utils';
+import { toUiNumberOfTokens, toClosesMeaningfulUnit } from '../../utils/utils';
 import Loading from '../../components/Loading/Loading';
 import BN from 'bignumber.js';
 import './WorkLockDashboard.scss';
@@ -41,6 +41,10 @@ function WorkLockDashboard(props) {
     setBusyCancel(false);
   };
 
+  const refundWorkLock = () => {
+    return store.workLockStore.refund();
+  };
+
   useEffect(() => {
     if (store.web3Initilized && store.workLockStore && !store.workLockStore.inited) {
       (async () => {
@@ -56,6 +60,7 @@ function WorkLockDashboard(props) {
   endDate.setTime(store.workLockStore.endBidDate * 1000);
 
   const minBidAmount = store.workLockStore.minAllowedBid ? Web3.utils.fromWei(store.workLockStore.minAllowedBid.toString()) : null;
+  const unlockedEth = store.workLockStore.unlockedEth ? toClosesMeaningfulUnit(store.workLockStore.unlockedEth) : { value: '0', unit: 'wei' };
 
   return store.web3Initilized && !loading ? (<div className="worklock-contrainer">
     <Row>
@@ -129,20 +134,46 @@ function WorkLockDashboard(props) {
                   </div>
                 </Col>
                 {
-                  store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() === 'finished' ? <>
-                    <Col className="mt-2">
-                      <p className="h6 text-center">Available for claim</p>
-                      <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
-                      <p className="small text-center text-muted">Warning! Claiming WorkLock NU tokens will initialize a new stake</p>
-                      <div className="action d-flex justify-content-center">
-                        <>{ !busyClaim ? <Button
-                            onClick={onClaim}
-                            disabled={!(store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.claimingAvailable && !store.workLockStore.workInfo.claimed)}
-                            >Claim</Button> : <Loading size={20}></Loading> }</>
-                      </div>
-                    </Col>
-                  </> : null }
+                  !store.workLockStore.workInfo.claimed ? <>
+                    {
+                      store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() === 'finished' ? <>
+                        <Col className="mt-2">
+                          <p className="h6 text-center">Available for claim</p>
+                          <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
+                          <p className="small text-center text-muted">Warning! Claiming WorkLock NU tokens will initialize a new stake</p>
+                          <div className="action d-flex justify-content-center">
+                            <>{ !busyClaim ? <Button
+                                onClick={onClaim}
+                                disabled={!(store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.claimingAvailable && !store.workLockStore.workInfo.claimed)}
+                                >Claim</Button> : <Loading size={20}></Loading> }</>
+                          </div>
+                        </Col>
+                      </> : null }
+                    </> : <>
+                    {
+                      store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() === 'finished' ? <>
+                        <Col className="mt-2">
+                          <p className="h6 text-center">You claimed</p>
+                          <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
+                        </Col>
+                      </> : null }
+                    </>
+                }
+
               </> : null }
+            </Row>
+            <Row className="mt-5 tokens-row">
+              {
+                unlockedEth ? <>
+                  <Col>
+                    <p className="h6 text-center">Unlocked from WorkLock</p>
+                    <p className="h4 text-center">{ unlockedEth.value } <br /> { unlockedEth.unit }</p>
+                    <div className="text-center d-flex justify-content-center">{
+                      <Button variant="secondary" className="button-action mt-2" disabled={ store.workLockStore.unlockedEth === '0'} onClick={refundWorkLock}>Refund</Button>
+                    }</div>
+                  </Col>
+                </> : null
+              }
             </Row>
           </Container>
         </Row>
