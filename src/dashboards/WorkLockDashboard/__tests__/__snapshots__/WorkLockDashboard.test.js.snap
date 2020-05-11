@@ -44,18 +44,9 @@ exports[`<WorkLockDashboard /> should render correctly 1`] = `
       >
         <div
           class="mt-2 justify-content-center row"
-        >
-          <span
-            class="h5"
-          >
-            WorkLock event ended on Jan 1, 1970, 12:00 AM
-          </span>
-        </div>
-        <div
-          class="mt-3 justify-content-center row"
         />
         <div
-          class="mt-5 tokens-row row"
+          class="mt-3 justify-content-center row"
         >
           <div
             class="col"

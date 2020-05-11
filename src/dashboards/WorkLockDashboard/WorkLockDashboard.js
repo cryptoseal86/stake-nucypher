@@ -2,11 +2,13 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Web3 from 'web3';
 import { observer } from 'mobx-react';
 import { decorate } from 'mobx';
+import { useHistory } from 'react-router-dom';
 import { useStore } from '../../stores';
 import { Container, Row, Col, Table, Button } from 'react-bootstrap';
 import WorkLock from '../../components/WorkLock/WorkLock';
 import { toUiNumberOfTokens, toClosesMeaningfulUnit } from '../../utils/utils';
 import Loading from '../../components/Loading/Loading';
+import Timeline from '../../components/Timeline/Timeline';
 import BN from 'bignumber.js';
 import './WorkLockDashboard.scss';
 
@@ -61,7 +63,6 @@ function WorkLockDashboard(props) {
 
   const minBidAmount = store.workLockStore.minAllowedBid ? Web3.utils.fromWei(store.workLockStore.minAllowedBid.toString()) : null;
   const unlockedEth = store.workLockStore.unlockedEth ? toClosesMeaningfulUnit(store.workLockStore.unlockedEth) : { value: '0', unit: 'wei' };
-
   return store.web3Initilized && !loading ? (<div className="worklock-contrainer">
     <Row>
       <Col md={4}>
@@ -120,17 +121,42 @@ function WorkLockDashboard(props) {
         <Row className="panel">
           <Container>
             <Row className="mt-2 justify-content-center">
-              <span className="h5">WorkLock event ended on { dateFormat(endDate) }</span>
+              { store.workLockStore.workInfo ? <>
+                <Timeline
+                  timelinePoints={[
+                    {
+                      date: store.workLockStore.startBidDate,
+                      label: 'Bidding phase'
+                    },
+                    {
+                      date: store.workLockStore.endBidDate,
+                      label: 'Bids cancelation window'
+                    },
+                    {
+                      date: +store.workLockStore.endBidDate + (60 * 60 * 24),
+                      label: 'Claiming tokens window'
+                    },
+                    {
+                      textPoint: 'Stake creation',
+                      label: 'Running node'
+                    },
+                    {
+                      textPoint: 'Ether claimed'
+                    }
+                  ]}
+                  completedIndex={ store.workLockStore.workInfo.claimed ? (store.workLockStore.workInfo.depositedETH === '0' ? 4 : 3) : null }
+                  ></Timeline>
+                </> : null }
             </Row>
             <Row className="mt-3 justify-content-center">
               { store.workLockStore.workInfo ? <>
                 <Col>
-                  <p className="h6 text-center">Your total bid</p>
+                  <p className="h6 text-center">Deposited amount</p>
                   <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)} <br /> ETH</p>
                   <div className="action d-flex justify-content-center">
                     { store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() !== 'finished' ?
                       <>{ !busyCancel ? <Button onClick={onBidCancel}>Cancel bid</Button> : <Loading size={20}></Loading> }</>
-                    : null }
+                    : <p className="small text-center text-muted">Warning! Bidding period ended</p> }
                   </div>
                 </Col>
                 {
@@ -161,8 +187,6 @@ function WorkLockDashboard(props) {
                 }
 
               </> : null }
-            </Row>
-            <Row className="mt-5 tokens-row">
               {
                 unlockedEth ? <>
                   <Col>

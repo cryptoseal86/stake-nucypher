@@ -27,6 +27,24 @@ exports[`<App /> should be able to switch tab 1`] = `
       </div>
     </a>
     <div
+      class="mr-auto navbar-nav"
+    >
+      <a
+        class="nav-link"
+        data-rb-event-key="/"
+        href="/"
+      >
+        Staking
+      </a>
+      <a
+        class="nav-link"
+        data-rb-event-key="/worklock"
+        href="/worklock"
+      >
+        Worklock
+      </a>
+    </div>
+    <div
       class="float-right h4 m-5"
     >
       <a
@@ -47,22 +65,6 @@ exports[`<App /> should be able to switch tab 1`] = `
           />
         </svg>
       </a>
-    </div>
-    <div
-      class="mr-sm-2"
-    >
-      <div
-        class="d-inline-block network-selector dropdown"
-      >
-        <button
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="dropdown-toggle btn btn-secondary"
-          type="button"
-        >
-          Gemini
-        </button>
-      </div>
     </div>
   </nav>
   <div
@@ -1086,6 +1088,24 @@ exports[`<App /> should render correctly 1`] = `
       </div>
     </a>
     <div
+      class="mr-auto navbar-nav"
+    >
+      <a
+        class="nav-link"
+        data-rb-event-key="/"
+        href="/"
+      >
+        Staking
+      </a>
+      <a
+        class="nav-link"
+        data-rb-event-key="/worklock"
+        href="/worklock"
+      >
+        Worklock
+      </a>
+    </div>
+    <div
       class="float-right h4 m-5"
     >
       <a
@@ -1106,22 +1126,6 @@ exports[`<App /> should render correctly 1`] = `
           />
         </svg>
       </a>
-    </div>
-    <div
-      class="mr-sm-2"
-    >
-      <div
-        class="d-inline-block network-selector dropdown"
-      >
-        <button
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="dropdown-toggle btn btn-secondary"
-          type="button"
-        >
-          Gemini
-        </button>
-      </div>
     </div>
   </nav>
   <div
