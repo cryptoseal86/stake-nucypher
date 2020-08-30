@@ -17,6 +17,26 @@
   - [X] Claiming ETH locked in WorkLock event
   - [ ] Increase tests coverage to at least 90%
 
+## How to run standalone verion
+1. go to working folder in your console
+2. run
+```bash
+git clone https://github.com/cryptoseal86/stake-nucypher.git
+```
+3. run
+```bash
+cd stake-nucypher
+```
+4. run
+```bash
+yarn install
+```
+5. run
+```bash
+yarn start
+```
+6. go to http://localhost:3000/
+
 ## Installation
 ```bash
 # install packages

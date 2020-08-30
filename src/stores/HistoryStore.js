@@ -14,16 +14,16 @@ class HistoryStore {
     const address = (await web3.eth.getAccounts())[0];
     const contract = Web3Initilizer.getContractInstance();
     const policyContract = Web3Initilizer.getPolicyContractInstance();
-    const activityConfirmedEvents = (await contract.getPastEvents('ActivityConfirmed', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'activityConfirmed', block: a.blockNumber, ...a.returnValues } });
+    const activityConfirmedEvents = (await contract.getPastEvents('CommitmentMade', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'commitmentMade', block: a.blockNumber, ...a.returnValues } });
     const depositedEvents = (await contract.getPastEvents('Deposited', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'deposit', block: a.blockNumber, ...a.returnValues } });
     const withdrawEvents = (await contract.getPastEvents('Withdrawn', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'withdraw', block: a.blockNumber, ...a.returnValues } });
     const reStakeSetEvents = (await contract.getPastEvents('ReStakeSet', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'restakeEnable', block: a.blockNumber, ...a.returnValues } });
     const slashedEvents = (await contract.getPastEvents('Slashed', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'slashed', block: a.blockNumber, ...a.returnValues } });
     const windDownEvents = (await contract.getPastEvents('WindDownSet', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'windDown', block: a.blockNumber, ...a.returnValues } });
     const divideEvents = (await contract.getPastEvents('Divided', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'divide', block: a.blockNumber, ...a.returnValues } });
-    const workerEvents = (await contract.getPastEvents('WorkerSet', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'workerSet', block: a.blockNumber, ...a.returnValues } });
+    const workerEvents = (await contract.getPastEvents('WorkerBonded', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'workerBonded', block: a.blockNumber, ...a.returnValues } });
     //const prolongEvents = (await contract.getPastEvents('Prolonged', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'prolong', block: a.blockNumber, ...a.returnValues } });
-    const minedEvents = (await contract.getPastEvents('Mined', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'mined', block: a.blockNumber, ...a.returnValues } });
+    const minedEvents = (await contract.getPastEvents('Minted', { filter: { staker: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'minted', block: a.blockNumber, ...a.returnValues } });
     const policyWithdrawEvents = (await policyContract.getPastEvents('Withdrawn', { filter: { node: address }, fromBlock: 0, toBlock: 'latest' })).map(a => { return { type: 'policyWithdraw', block: a.blockNumber, ...a.returnValues } });
     const events = [
       ...activityConfirmedEvents,

@@ -9,7 +9,7 @@ import { toUiNumberOfTokens, isHexNil, shortenHex } from '../../utils/utils';
 
 function historyItemText(item) {
   switch(item.type) {
-    case 'activityConfirmed':
+    case 'commitmentMade':
       return `Worker confirmed activity`;
     case 'deposit':
       return `Deposited ${toUiNumberOfTokens(item.value)} NU`;
@@ -23,12 +23,12 @@ function historyItemText(item) {
       return 'Divided stake';
     case 'slashed':
       return `Slashed stake for ${item.penalty}`;
-    case 'workerSet':
+    case 'workerBonded':
       return isHexNil(item.worker) ? 'Detached worker' : `Set worker to ${shortenHex(item.worker)}`;
     case 'prolong':
       return `Prolonged stake`;
-    case 'mined':
-      return `Mined reward of ${toUiNumberOfTokens(item.value)} NU`
+    case 'minted':
+      return `Minted reward of ${toUiNumberOfTokens(item.value)} NU`
     case 'policyWithdraw':
       return `Withdrawal of policy reward ${(+Web3.utils.fromWei(new Web3.utils.BN(item.value))).toString()} ETH`;
   }

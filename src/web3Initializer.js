@@ -1,4 +1,5 @@
 import Web3 from 'web3';
+import Web3Modal from 'web3modal';
 import { NuCypherToken, StakingEscrow, PolicyManager, WorkLock } from './contract-registry.js'
 import config from './config.json';
 
@@ -12,25 +13,37 @@ class Web3Initilizer {
 
   static async initialize() {
     if (!this.#web3) {
-      if (window.ethereum) {
-        await window.ethereum.enable();
-        this.#web3 = new Web3(window.ethereum);
-        if ((await this.#web3.eth.net.getId()) === 5) {
-          this.#contractInstance = new this.#web3.eth.Contract(StakingEscrow, config.stakingEscrowAddress);
-          this.#tokenInstance = new this.#web3.eth.Contract(NuCypherToken, config.tokenAddress);
-          this.#policyContract = new this.#web3.eth.Contract(PolicyManager, config.policyManagerAddress);
-          this.#workLockContract = new this.#web3.eth.Contract(WorkLock, config.workLockAddress);
+      const providerOptions = {
+      };
+      const web3Modal = new Web3Modal({
+        cacheProvider: true,
+        providerOptions
+      });
 
-          window.ethereum.on('accountsChanged', (accounts) => {
-            window.location.reload();
-          });
+      const provider = await web3Modal.connect();
+      this.#web3 = new Web3(provider);
 
-          return true;
-        } else {
-          alert('Only goerli etherium network is supported by the moment');
-        }
+      let networkConfig = null;
+      if ((await this.#web3.eth.net.getId()) === 1) { // mainnet
+        networkConfig = config.mainnet;
+      } else if ((await this.#web3.eth.net.getId()) === 4) { // ibex
+        networkConfig = config.ibex;
+      }
+
+      if (networkConfig) {
+        this.#contractInstance = new this.#web3.eth.Contract(StakingEscrow, networkConfig.stakingEscrowAddress);
+        this.#tokenInstance = new this.#web3.eth.Contract(NuCypherToken, networkConfig.tokenAddress);
+        this.#policyContract = new this.#web3.eth.Contract(PolicyManager, networkConfig.policyManagerAddress);
+        this.#workLockContract = new this.#web3.eth.Contract(WorkLock, networkConfig.workLockAddress);
+
+        window.ethereum.on('accountsChanged', (accounts) => {
+          window.location.reload();
+        });
+
+        return true;
       } else {
-        alert('Please install Metamask!');
+        alert('Network is not supported');
+        return false;
       }
     }
   }
