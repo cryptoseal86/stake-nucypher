@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { decorate } from 'mobx';
 import { useHistory } from 'react-router-dom';
 import { useStore } from '../../stores';
-import { Container, Row, Col, Table, Button } from 'react-bootstrap';
+import { Container, Row, Col, Table, Button, Modal, Alert } from 'react-bootstrap';
 import WorkLock from '../../components/WorkLock/WorkLock';
 import { toUiNumberOfTokens, toClosesMeaningfulUnit } from '../../utils/utils';
 import Loading from '../../components/Loading/Loading';
@@ -22,6 +22,7 @@ function WorkLockDashboard(props) {
   const [loading, setLoading] = useState();
   const [busyCancel, setBusyCancel] = useState(false);
   const [busyClaim, setBusyClaim] = useState(false);
+  const [warningShow, setWarningShow] = useState(true);
 
   const onBid = (event) => {
     const ethValue = Web3.utils.toWei(event.bidValue.toString());
@@ -214,6 +215,23 @@ function WorkLockDashboard(props) {
         </Row>
       </> : null
     }
+    <Modal
+       show={warningShow}
+       onHide={() => setWarningShow(false)}
+       dialogClassName="modal-90w"
+       aria-labelledby="example-custom-modal-styling-title"
+     >
+       <Modal.Header closeButton>
+         <Modal.Title id="example-custom-modal-styling-title">
+           Warning!
+         </Modal.Title>
+       </Modal.Header>
+       <Modal.Body>
+          <p>
+          <Alert variant="danger">All ETH contributed during the WorkLock will be automatically returned to the participant by the Worklock smart contract after the WorkLock participant has provided Proxy Re-Encryption services for the required period of approximately six months from network launch. If a participant does not provide the required services, their ETH will remain escrowed in the WorkLock smart contract. Please carefully consider this before choosing to participate in the Worklock program. The WorkLock smart contract has been audited by both NuCypher core developers and Trail of Bits. However, there are no guarantees and a certain degree of smart contract risk remains.</Alert>
+         </p>
+       </Modal.Body>
+     </Modal>
   </div>) : <div className="d-flex justify-content-center"><Loading size={80}></Loading></div>;
 }
 
