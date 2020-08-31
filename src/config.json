@@ -1,9 +1,9 @@
 {
   "mainnet": {
-    "stakingEscrowAddress": "0x33d28fcb3204b146ea8d5f059ebef8679f992deb",
+    "stakingEscrowAddress": "0xbbD3C0C794F40c4f993B03F65343aCC6fcfCb2e2",
     "tokenAddress": "0x4fe83213d56308330ec302a8bd641f1d0113a4cc",
-    "policyManagerAddress": "0xF1Fe01eb9dfDb1F43BEd97923E96176526525EF4",
-    "workLockAddress": "0xe9778e69a961e64d3cdbb34cf6778281d34667c2"
+    "policyManagerAddress": "0x67E4A942c067Ff25cE7705B69C318cA2Dfa54D64",
+    "workLockAddress": "0xe9778E69a961e64d3cdBB34CF6778281d34667c2"
   },
   "ibex": {
     "stakingEscrowAddress": "0x33d28fcb3204b146ea8d5f059ebef8679f992deb",
