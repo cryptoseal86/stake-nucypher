@@ -84,6 +84,34 @@ function WorkLockDashboard(props) {
         <Row className="panel">
           <Container>
             <Row className="mt-2 justify-content-center">
+              { store.workLockStore.workInfo ? <>
+                <Timeline
+                  timelinePoints={[
+                    {
+                      date: store.workLockStore.startBidDate,
+                      label: 'Bidding phase'
+                    },
+                    {
+                      date: store.workLockStore.endBidDate,
+                      label: 'Bids cancelation window'
+                    },
+                    {
+                      date: +store.workLockStore.endBidDate + (60 * 60 * 24),
+                      label: 'Claiming tokens window'
+                    },
+                    {
+                      textPoint: 'Stake creation',
+                      label: 'Running node'
+                    },
+                    {
+                      textPoint: 'Ether claimed'
+                    }
+                  ]}
+                  completedIndex={ store.workLockStore.workInfo.claimed ? (store.workLockStore.workInfo.depositedETH === '0' ? 4 : 3) : null }
+                  ></Timeline>
+                </> : null }
+            </Row>
+            <Row className="mt-2 justify-content-center">
               <span className="h5">WorkLock event ends on { dateFormat(endDate) }</span>
             </Row>
             <Row className="mt-3">
