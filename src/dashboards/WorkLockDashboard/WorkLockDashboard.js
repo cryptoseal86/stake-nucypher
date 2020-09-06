@@ -22,11 +22,18 @@ function WorkLockDashboard(props) {
   const [loading, setLoading] = useState();
   const [busyCancel, setBusyCancel] = useState(false);
   const [busyClaim, setBusyClaim] = useState(false);
-  const [warningShow, setWarningShow] = useState(true);
+  const [warningShow, setWarningShow] = useState(false);
+  const [bidValue, setBidBalue] = useState('0');
 
   const onBid = (event) => {
+    setWarningShow(true);
     const ethValue = Web3.utils.toWei(event.bidValue.toString());
-    store.workLockStore.bid(ethValue);
+    setBidBalue(ethValue);
+  };
+
+  const onAgree = () => {
+    store.workLockStore.bid(bidValue);
+    setWarningShow(false);
   };
 
   const onClaim = async () => {
@@ -259,6 +266,9 @@ function WorkLockDashboard(props) {
           <Alert variant="danger">All ETH contributed during the WorkLock will be automatically returned to the participant by the Worklock smart contract after the WorkLock participant has provided Proxy Re-Encryption services for the required period of approximately six months from network launch. If a participant does not provide the required services, their ETH will remain escrowed in the WorkLock smart contract. Please carefully consider this before choosing to participate in the Worklock program. The WorkLock smart contract has been audited by both NuCypher core developers and Trail of Bits. However, there are no guarantees and a certain degree of smart contract risk remains.</Alert>
          </p>
        </Modal.Body>
+       <Modal.Footer>
+         <Button onClick={onAgree}>Agree</Button>
+       </Modal.Footer>
      </Modal>
   </div>) : <div className="d-flex justify-content-center"><Loading size={80}></Loading></div>;
 }
