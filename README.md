@@ -1,7 +1,5 @@
 # NuCypher Staker [![Build Status](https://travis-ci.com/cryptoseal86/stake-nucypher.svg?branch=master)](https://travis-ci.com/cryptoseal86/stake-nucypher) [![Coverage Status](https://coveralls.io/repos/github/cryptoseal86/stake-nucypher/badge.svg?branch=master&source=github)](https://coveralls.io/github/cryptoseal86/stake-nucypher?branch=master)
 
-###### Hosted version: https://www.stake-nucypher.com/
-
 ## Features
 
   - [x] Show list of Stakes
