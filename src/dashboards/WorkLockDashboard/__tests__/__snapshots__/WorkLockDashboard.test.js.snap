@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WorkLockDashboard /> should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="worklock-contrainer"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-4"
+      >
+        <p
+          class="text-center h6"
+        >
+          Total ETH supplied
+        </p>
+      </div>
+      <div
+        class="col-md-4"
+      >
+        <p
+          class="text-center h6"
+        >
+          Bidders number
+        </p>
+      </div>
+      <div
+        class="col-md-4"
+      >
+        <p
+          class="text-center h6"
+        >
+          Total NU to distribute
+        </p>
+      </div>
+    </div>
+    <div
+      class="panel row"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="mt-2 justify-content-center row"
+        />
+        <div
+          class="mt-3 justify-content-center row"
+        >
+          <div
+            class="col"
+          >
+            <p
+              class="h6 text-center"
+            >
+              Unlocked from WorkLock
+            </p>
+            <p
+              class="h4 text-center"
+            >
+              0 
+              <br />
+               wei
+            </p>
+            <div
+              class="text-center d-flex justify-content-center"
+            >
+              <button
+                class="button-action mt-2 btn btn-secondary"
+                type="button"
+              >
+                Refund
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
