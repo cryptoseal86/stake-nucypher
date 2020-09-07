@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from '../Loading';
-import { render, fireEvent, wait } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('<Loading />', () => {
   it('should render correctly', () => {

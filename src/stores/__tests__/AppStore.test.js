@@ -5,7 +5,7 @@ describe('AppStore', () => {
 
   it('should call initWeb3 on constructor', () => {
     jest.spyOn(AppStore.prototype, 'initWeb3');
-    const appStore = new AppStore();
+    new AppStore();
     expect(AppStore.prototype.initWeb3).toBeCalled();
   });
 

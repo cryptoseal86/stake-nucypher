@@ -1,5 +1,3 @@
-import BN from 'bignumber.js';
-
 let node = {
   reward: "7000",
   rewardRate: "0",

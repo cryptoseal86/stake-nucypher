@@ -17,7 +17,7 @@ export default {
           if (!allowance[spender]) {
             allowance[spender] = value;
           } else {
-            throw 'already approved';
+            throw new Error('already approved');
           }
         }
       }
@@ -26,7 +26,7 @@ export default {
       return {
         send: () => {
           if (!allowance[spender]) {
-            throw 'not approved';
+            throw new Error('not approved');
           } else {
             allowance[spender] = BN(allowance[spender]).plus(value).toFixed();
           }
@@ -37,7 +37,7 @@ export default {
       return {
         send: () => {
           if (!allowance[spender]) {
-            throw 'not approved';
+            throw new Error('not approved');
           } else {
             allowance[spender] = BN(allowance[spender]).minus(value).toFixed();
           }

@@ -1,13 +1,11 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import Web3 from 'web3';
 import { observer } from 'mobx-react';
 import { decorate } from 'mobx';
 import { useStore } from '../../stores';
-import Toggle from 'react-toggle';
-import Web3Initilizer from '../../web3Initializer';
-import { Container, Row, Col, Table, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import Withdraw from '../../components/Withdraw/Withdraw';
-import { toUiNumberOfTokens, toClosesMeaningfulUnit } from '../../utils/utils';
+import { toClosesMeaningfulUnit } from '../../utils/utils';
 
 function WithdrawDashboard(props) {
   const store = useStore();

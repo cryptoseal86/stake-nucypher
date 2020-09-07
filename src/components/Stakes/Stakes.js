@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Table, Container, Row, Col, Button, Collapse } from 'react-bootstrap';
-import * as Icon from 'react-icons/fa';
+import { Container, Row, Col, Button, Collapse } from 'react-bootstrap';
 import DivideSubStake from '../DivideSubStake/DivideSubStake';
 import ProlongSubStake from '../ProlongSubStake/ProlongSubStake';
 import { toUiNumberOfTokens } from '../../utils/utils';

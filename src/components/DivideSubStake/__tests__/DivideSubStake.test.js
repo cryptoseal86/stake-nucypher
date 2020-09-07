@@ -19,7 +19,7 @@ describe('<DivideSubStake />', () => {
     const subStake = {
       value: Web3.utils.toWei('300000')
     };
-    const { getByLabelText, getByText, getByTestId } = render(<DivideSubStake subStake={subStake} onSubStakeDivide={onSubStakeDivide} />);
+    const { getByText, getByTestId } = render(<DivideSubStake subStake={subStake} onSubStakeDivide={onSubStakeDivide} />);
 
     await wait(() => {
       fireEvent.click(getByText('Divide'));
@@ -40,7 +40,7 @@ describe('<DivideSubStake />', () => {
     const subStake = {
       value: Web3.utils.toWei('100000')
     };
-    const { getByLabelText, getByText, getByTestId } = render(<DivideSubStake subStake={subStake} onSubStakeDivide={onSubStakeDivide} />);
+    const { getByTestId } = render(<DivideSubStake subStake={subStake} onSubStakeDivide={onSubStakeDivide} />);
 
     await wait(() => {
       fireEvent.change(getByTestId('first-substake-value'), { target: { value: '25000' } });

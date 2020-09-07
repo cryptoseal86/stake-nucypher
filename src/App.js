@@ -2,12 +2,9 @@ import React, { PureComponent } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
-import { Provider } from 'mobx-react';
-import { Navbar, Nav, Button, DropdownButton, Dropdown, Container, Tabs, Tab } from 'react-bootstrap';
-import Web3Initilizer from './web3Initializer';
+import { Navbar, Nav, Container, Tabs, Tab } from 'react-bootstrap';
 import StakerDashboard from './dashboards/StakerDashboard/StakerDashboard';
 import WithdrawDashboard from './dashboards/WithdrawDashboard/WithdrawDashboard';
 import HistoryDashboard from './dashboards/HistoryDashboard/HistoryDashboard';
@@ -39,7 +36,7 @@ class App extends PureComponent {
               <Nav.Link href="/worklock">Worklock</Nav.Link>
             </Nav>
             <div className="float-right h4 m-5">
-              <a href="https://github.com/cryptoseal86/stake-nucypher" target="_blank">
+              <a href="https://github.com/cryptoseal86/stake-nucypher" target="_blank" rel="noopener noreferrer">
                 <FaGithub></FaGithub>
               </a>
             </div>

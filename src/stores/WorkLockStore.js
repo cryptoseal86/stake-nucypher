@@ -1,5 +1,4 @@
-import { observable, action, decorate, computed } from 'mobx';
-import { fromPromise } from 'mobx-utils';
+import { observable, decorate } from 'mobx';
 import BN from 'bignumber.js';
 import Web3Initilizer from '../web3Initializer';
 
@@ -20,9 +19,6 @@ class WorkLockStore {
   biddersNumber = null;
   availableCompensation = null;
   stakingPeriods = null;
-
-  constructor() {
-  }
 
   async init() {
     await this.getWorkInfo();
