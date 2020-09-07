@@ -23,7 +23,7 @@ exports[`<WorkLockDashboard /> should render correctly 1`] = `
         <p
           class="text-center h6"
         >
-          Bidders number
+          Worklock Participants
         </p>
       </div>
       <div
