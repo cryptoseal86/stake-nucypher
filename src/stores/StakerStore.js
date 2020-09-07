@@ -1,4 +1,4 @@
-import { observable, action, runInAction, decorate } from 'mobx';
+import { observable, action, decorate } from 'mobx';
 import Staker from '../models/Staker';
 import SubStake from '../models/SubStake';
 import { isHexNil } from '../utils/utils';
@@ -26,7 +26,6 @@ class StakerStore {
 
   async getSubStakes(address) {
     const contract = Web3Initilizer.getContractInstance();
-    const token = Web3Initilizer.getTokenInstance();
     const web3 = Web3Initilizer.getWeb3();
     const account = address || (await web3.eth.getAccounts())[0];
     const substakesCount = await contract.methods.getSubStakesLength(account).call();
@@ -118,7 +117,6 @@ class StakerStore {
 
   async detachWorker() {
     const contract = Web3Initilizer.getContractInstance();
-    const token = Web3Initilizer.getTokenInstance();
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
     try {
@@ -133,7 +131,6 @@ class StakerStore {
 
   async setWindDown(value) {
     const contract = Web3Initilizer.getContractInstance();
-    const token = Web3Initilizer.getTokenInstance();
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
     try {
@@ -148,7 +145,6 @@ class StakerStore {
 
   async divideStake(index, newValue, newDuration) {
     const contract = Web3Initilizer.getContractInstance();
-    const token = Web3Initilizer.getTokenInstance();
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
     try {
@@ -163,7 +159,6 @@ class StakerStore {
 
   async prolongStake(index, extendDuration) {
     const contract = Web3Initilizer.getContractInstance();
-    const token = Web3Initilizer.getTokenInstance();
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
     try {

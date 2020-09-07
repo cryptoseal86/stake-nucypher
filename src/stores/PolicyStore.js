@@ -1,6 +1,5 @@
-import { observable, action, decorate } from 'mobx';
+import { decorate } from 'mobx';
 import Web3Initilizer from '../web3Initializer';
-import Web3 from 'web3';
 
 class PolicyStore {
 

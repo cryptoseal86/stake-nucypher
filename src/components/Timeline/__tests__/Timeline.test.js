@@ -1,7 +1,6 @@
 import React from 'react';
-import Web3 from 'web3';
 import Timeline from '../Timeline';
-import { render, fireEvent, wait } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('<Timeline />', () => {
   const timelinePoints = [

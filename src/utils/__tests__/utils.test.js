@@ -39,7 +39,7 @@ describe('Utils', () => {
     expect(utils.timeTo0UTC()).toBe('39 minutes');
   });
 
-  it('toClosesMeaningfulUnit', () => {
+  it('toClosestMeaningfulUnit', () => {
     expect(utils.toClosesMeaningfulUnit('0')).toEqual({ value: '0', unit: 'wei' });
     expect(utils.toClosesMeaningfulUnit('7')).toEqual({ value: '7', unit: 'wei' });
     expect(utils.toClosesMeaningfulUnit('7000')).toEqual({ value: '7000', unit: 'wei' });

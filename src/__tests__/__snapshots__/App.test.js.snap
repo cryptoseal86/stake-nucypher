@@ -36,6 +36,7 @@ exports[`<App /> should be able to switch tab 1`] = `
     >
       <a
         href="https://github.com/cryptoseal86/stake-nucypher"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <svg
@@ -1073,6 +1074,7 @@ exports[`<App /> should render correctly 1`] = `
     >
       <a
         href="https://github.com/cryptoseal86/stake-nucypher"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <svg

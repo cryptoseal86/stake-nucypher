@@ -1,9 +1,8 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { observer } from 'mobx-react';
 import { decorate } from 'mobx';
 import Web3 from 'web3';
-import Web3Initilizer from '../../web3Initializer';
-import { Container, Row, Col, Table } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { useStore } from '../../stores';
 import { toUiNumberOfTokens, isHexNil, shortenHex } from '../../utils/utils';
 
@@ -31,9 +30,9 @@ function historyItemText(item) {
       return `Minted reward of ${toUiNumberOfTokens(item.value)} NU`
     case 'policyWithdraw':
       return `Withdrawal of policy reward ${(+Web3.utils.fromWei(new Web3.utils.BN(item.value))).toString()} ETH`;
+    default:
+      return 'no_text_for_item' + JSON.stringify(item);
   }
-
-  return 'no_text_for_item' + JSON.stringify(item);
 }
 
 function HistoryDashboard() {

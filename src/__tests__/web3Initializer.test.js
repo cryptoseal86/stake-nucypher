@@ -1,5 +1,5 @@
 import Web3Initilizer from '../web3Initializer';
-import Web3 from 'web3';
+
 jest.mock('web3', () => {
   return jest.fn().mockImplementation(function() {
     this.id = 1;

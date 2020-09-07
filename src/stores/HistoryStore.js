@@ -1,4 +1,4 @@
-import { observable, action, decorate } from 'mobx';
+import { observable, decorate } from 'mobx';
 import Web3Initilizer from '../web3Initializer';
 import Web3 from 'web3';
 
