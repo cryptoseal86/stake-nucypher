@@ -2,7 +2,7 @@ import Web3Initilizer from '../web3Initializer';
 import Web3 from 'web3';
 jest.mock('web3', () => {
   return jest.fn().mockImplementation(function() {
-    this.id = 5;
+    this.id = 1;
     return {
       eth: {
         net: {
@@ -30,18 +30,6 @@ describe('web3Initializer', () => {
   afterEach(() => {
     window.alert = originalAlert;
     jest.clearAllMocks();
-  });
-
-  it('should alert when metamask is not installed', async () => {
-    window.ethereum = null;
-    await Web3Initilizer.initialize();
-    expect(window.alert).toBeCalledWith('Please install Metamask!');
-  });
-
-  it('should init on initialize', async () => {
-    await Web3Initilizer.initialize();
-    expect(window.ethereum.enable).toBeCalled();
-    expect(window.ethereum.on).toBeCalledWith('accountsChanged', expect.any(Function));
   });
 
   it('should return instances', async () => {

@@ -141,6 +141,13 @@ const contract = {
           return Promise.resolve('0');
         })
       };
+    }),
+    stakingPeriods: jest.fn(value => {
+      return {
+        call: jest.fn(() => {
+          return Promise.resolve('30');
+        })
+      };
     })
   }
 };

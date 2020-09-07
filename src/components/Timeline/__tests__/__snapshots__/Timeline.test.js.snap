@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Timeline /> should render correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="timeline"
+    id="timeline"
+  >
+    <li
+      class="li complete"
+      style="width: 20%;"
+    >
+      <div
+        class="timeline"
+      >
+        <span
+          class="date"
+        >
+          5/14/2020
+        </span>
+      </div>
+      <div
+        class="status"
+      >
+        <h6>
+          Bidding phase
+        </h6>
+      </div>
+    </li>
+    <li
+      class="li complete"
+      style="width: 20%;"
+    >
+      <div
+        class="timeline"
+      >
+        <span
+          class="date"
+        >
+          5/14/2020
+        </span>
+      </div>
+      <div
+        class="status"
+      >
+        <h6>
+          Bids cancelation window
+        </h6>
+      </div>
+    </li>
+    <li
+      class="li complete"
+      style="width: 20%;"
+    >
+      <div
+        class="timeline"
+      >
+        <span
+          class="date"
+        >
+          5/14/2020
+        </span>
+      </div>
+      <div
+        class="status"
+      >
+        <h6>
+          Claiming tokens window
+        </h6>
+      </div>
+    </li>
+    <li
+      class="li"
+      style="width: 20%;"
+    >
+      <div
+        class="timeline"
+      >
+        <span
+          class="text-point"
+        >
+          Stake creation
+        </span>
+      </div>
+      <div
+        class="status"
+      >
+        <h6>
+          Running node
+        </h6>
+      </div>
+    </li>
+    <li
+      class="li"
+      style="width: 20%;"
+    >
+      <div
+        class="timeline"
+      >
+        <span
+          class="text-point"
+        >
+          Ether claimed
+        </span>
+      </div>
+      <div
+        class="status"
+      />
+    </li>
+  </ul>
+</DocumentFragment>
+`;
