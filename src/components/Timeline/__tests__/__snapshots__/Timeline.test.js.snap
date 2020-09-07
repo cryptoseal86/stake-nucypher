@@ -23,7 +23,7 @@ exports[`<Timeline /> should render correctly 1`] = `
         class="status"
       >
         <h6>
-          Bidding phase
+          Escrow phase
         </h6>
       </div>
     </li>
@@ -44,7 +44,7 @@ exports[`<Timeline /> should render correctly 1`] = `
         class="status"
       >
         <h6>
-          Bids cancelation window
+          Escrow cancellation window
         </h6>
       </div>
     </li>

@@ -78,7 +78,7 @@ function WorkLockDashboard(props) {
         { store.workLockStore.tokenSupply ? <p className="text-center h4">{ toUiNumberOfTokens(store.workLockStore.ethSupply) } <br /> ETH</p> : null }
       </Col>
       <Col md={4}>
-        <p className="text-center h6">Bidders number</p>
+        <p className="text-center h6">Worklock Participants</p>
         { store.workLockStore.biddersNumber ? <p className="text-center h4">{ store.workLockStore.biddersNumber }</p> : null }
       </Col>
       <Col md={{ span: 4 }}>
@@ -96,11 +96,11 @@ function WorkLockDashboard(props) {
                   timelinePoints={[
                     {
                       date: store.workLockStore.startBidDate,
-                      label: 'Bidding phase'
+                      label: 'Escrow phase'
                     },
                     {
                       date: store.workLockStore.endBidDate,
-                      label: 'Bids cancelation window'
+                      label: 'Escrow cancelation window'
                     },
                     {
                       date: +store.workLockStore.endBidDate + (60 * 60 * 24),
@@ -124,7 +124,7 @@ function WorkLockDashboard(props) {
             <Row className="mt-3">
               { store.workLockStore.workInfo ? <>
                 <Col>
-                  <p className="h6 text-center">Your total bid</p>
+                  <p className="h6 text-center">Your total</p>
                   <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.workInfo.depositedETH)} <br /> ETH</p>
                   <div className="action d-flex justify-content-center">
                     { store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() !== 'finished' ?
@@ -137,7 +137,7 @@ function WorkLockDashboard(props) {
                     <Col>
                       <p className="h6 text-center">Your claim</p>
                       <p className="h4 text-center">{toUiNumberOfTokens(store.workLockStore.claimAmount)} <br /> NU</p>
-                      <p className="small text-center text-muted">Warning! Available claim value may fluctuate until bidding closes and claims are finalized</p>
+                      <p className="small text-center text-muted">Warning! Available claim value may fluctuate until Worklock closes and claims are finalized</p>
                     </Col>
                   </> : null
                 }
@@ -162,11 +162,11 @@ function WorkLockDashboard(props) {
                   timelinePoints={[
                     {
                       date: store.workLockStore.startBidDate,
-                      label: 'Bidding phase'
+                      label: 'Escrow phase'
                     },
                     {
                       date: store.workLockStore.endBidDate,
-                      label: 'Bids cancelation window'
+                      label: 'Escrow cancelation window'
                     },
                     {
                       date: +store.workLockStore.endBidDate + (60 * 60 * 24),
@@ -192,7 +192,7 @@ function WorkLockDashboard(props) {
                   <div className="action d-flex justify-content-center">
                     { store.workLockStore.workInfo.depositedETH !== '0' && store.workLockStore.cancelationBidStatus() !== 'finished' ?
                       <>{ !busyCancel ? <Button onClick={onBidCancel}>Cancel bid</Button> : <Loading size={20}></Loading> }</>
-                    : <p className="small text-center text-muted">Warning! Bidding period ended</p> }
+                    : <p className="small text-center text-muted">Warning! Escrow period ended</p> }
                   </div>
                 </Col>
                 {
