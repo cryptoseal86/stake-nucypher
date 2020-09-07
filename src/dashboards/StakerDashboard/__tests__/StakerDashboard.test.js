@@ -11,13 +11,13 @@ describe('<StakerDashboard />', () => {
   let escrowContract;
   beforeAll(() => {
     Date.now = () => 1582581711708;
-    Date.prototype.getTime = () => 1582581711708;
+    Date.prototype.getTime = () => 1582581711708; // eslint-disable-line
     escrowContract = Web3Initilizer.getContractInstance();
   });
 
   afterAll(() => {
     Date.now = originalDateNow;
-    Date.prototype.getTime = originalDateGetTime;
+    Date.prototype.getTime = originalDateGetTime; // eslint-disable-line
     jest.restoreMocks();
   });
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { decorate } from 'mobx';
 import Web3 from 'web3';
-import { Table, Container, Row, Col, Button, Modal } from 'react-bootstrap';
+import { Row, Col, Button, Modal } from 'react-bootstrap';
 import Toggle from 'react-toggle';
 import Stakes from '../../components/Stakes/Stakes';
 import AddStake from '../../components/AddStake/AddStake';
@@ -11,8 +11,6 @@ import Loading from '../../components/Loading/Loading';
 
 import { shortenHex, isHexNil, toUiNumberOfTokens, timeTo0UTC } from '../../utils/utils';
 import classnames from 'classnames';
-import { utils } from 'web3';
-import { FaLightbulb } from 'react-icons/fa';
 import { useStore } from '../../stores';
 
 import './StakerDashboard.scss';
@@ -88,7 +86,7 @@ function StakerDashboard(props) {
     workerActivityState = 'not_seen';
   } else if (store.stakerStore.staker && store.currentPeriod < store.stakerStore.staker.lastActivePeriod) {
     workerActivityState = 'next_confirmed';
-  } else if (store.stakerStore.staker && store.currentPeriod == store.stakerStore.staker.lastActivePeriod) {
+  } else if (store.stakerStore.staker && store.currentPeriod === store.stakerStore.staker.lastActivePeriod) {
     workerActivityState = 'confirmed';
   } else if (store.stakerStore.staker && store.currentPeriod > store.stakerStore.staker.lastActivePeriod) {
     workerActivityState = 'not_confirmed'
@@ -109,15 +107,17 @@ function StakerDashboard(props) {
       case 'not_confirmed':
         result = 'Current period is not confirmed';
         break;
+      default:
+        result = null;
     }
     return result;
   };
   const WorkerActivity = () =>  <>
       <span className={classnames({
-          'text-success': workerActivityState == 'next_confirmed',
-          'text-warning': workerActivityState == 'confirmed',
-          'text-danger': workerActivityState == 'not_confirmed',
-          'text-secondary': workerActivityState == 'not_seen'
+          'text-success': workerActivityState === 'next_confirmed',
+          'text-warning': workerActivityState === 'confirmed',
+          'text-danger': workerActivityState === 'not_confirmed',
+          'text-secondary': workerActivityState === 'not_seen'
         })}>
         <span>{labelForWorkerState(workerActivityState)}</span>
       </span>

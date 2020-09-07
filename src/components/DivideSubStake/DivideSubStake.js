@@ -5,7 +5,6 @@ import Slider, { createSliderWithTooltip } from 'rc-slider';
 import Loading from '../Loading/Loading';
 import * as Yup from 'yup';
 import Web3 from 'web3';
-import { toUiNumberOfTokens } from '../../utils/utils';
 import BN from 'bignumber.js';
 
 import './DivideSubStake.scss';

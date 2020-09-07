@@ -1,7 +1,5 @@
 import PolicyStore from '../PolicyStore';
 import Web3Initilizer from '../../web3Initializer';
-import Web3 from 'web3';
-import BN from 'bignumber.js';
 jest.mock('../../web3Initializer');
 
 describe('PolicyStore', () => {

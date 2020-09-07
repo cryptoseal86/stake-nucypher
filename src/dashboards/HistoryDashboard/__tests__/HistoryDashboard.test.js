@@ -1,6 +1,6 @@
 import React from 'react';
 import HistoryDashboard from '../HistoryDashboard';
-import { render, fireEvent, wait } from '@testing-library/react';
+import { render, wait } from '@testing-library/react';
 jest.mock('../../../web3Initializer');
 
 describe('<HistoryDashboard />', () => {

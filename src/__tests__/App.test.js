@@ -9,12 +9,12 @@ describe('<App />', () => {
   const originalDateGetTime = Date.prototype.getTime;
   beforeAll(() => {
     Date.now = () => 1582581721708;
-    Date.prototype.getTime = () => 1582581721708;
+    Date.prototype.getTime = () => 1582581721708; // eslint-disable-line
   });
 
   afterAll(() => {
-    Date.now = originalDate;
-    Date.prototype.getTime = originalDateGetTime;
+    Date.now = originalDateNow;
+    Date.prototype.getTime = originalDateGetTime; // eslint-disable-line
   });
 
   it('should render correctly', async () => {

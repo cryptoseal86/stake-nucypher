@@ -41,12 +41,12 @@ function toClosesMeaningfulUnit(value) {
   let result = toUiNumberOfTokens(value);
   let keys = Object.keys(unitMap);
   let index = 0;
-  while (result == '0.0000' && index < keys.length) {
+  while (result === '0.0000' && index < keys.length) {
     result = toUiNumberOfTokens(BN(value).times(Math.pow(10, keys[index])).toFixed());
     index++;
   }
 
-  if (keys[index - 1] == 18) {
+  if (keys[index - 1] === 18) {
     result = result.substring(0, result.length - 5);
   }
 
