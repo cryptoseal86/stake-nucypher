@@ -7,11 +7,11 @@ describe('<Timeline />', () => {
   const timelinePoints = [
     {
       date: '1589459576',
-      label: 'Bidding phase'
+      label: 'Escrow phase'
     },
     {
       date: '1589459576',
-      label: 'Bids cancelation window'
+      label: 'Escrow cancellation window'
     },
     {
       date: '1589459576',
