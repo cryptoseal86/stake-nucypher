@@ -21,6 +21,14 @@ class Web3Initilizer {
       });
 
       const provider = await web3Modal.connect();
+      provider.on('accountsChanged', (accounts) => {
+        window.location.reload();
+      });
+
+      provider.on('chainChanged', (chainId) => {
+        window.location.reload();
+      });
+
       this.#web3 = new Web3(provider);
 
       let networkConfig = null;
@@ -35,10 +43,6 @@ class Web3Initilizer {
         this.#tokenInstance = new this.#web3.eth.Contract(NuCypherToken, networkConfig.tokenAddress);
         this.#policyContract = new this.#web3.eth.Contract(PolicyManager, networkConfig.policyManagerAddress);
         this.#workLockContract = new this.#web3.eth.Contract(WorkLock, networkConfig.workLockAddress);
-
-        window.ethereum.on('accountsChanged', (accounts) => {
-          window.location.reload();
-        });
 
         return true;
       } else {
