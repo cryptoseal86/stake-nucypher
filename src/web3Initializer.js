@@ -21,13 +21,23 @@ class Web3Initilizer {
       });
 
       const provider = await web3Modal.connect();
-      provider.on('accountsChanged', (accounts) => {
-        window.location.reload();
-      });
 
-      provider.on('chainChanged', (chainId) => {
-        window.location.reload();
-      });
+      const isiFrame = window && window.parent && window.self && window.parent !== window.self;
+      if (!isiFrame) {
+        provider.on('accountsChanged', (accounts) => {
+          window.location.reload();
+        });
+
+        provider.on('chainChanged', (chainId) => {
+          window.location.reload();
+        });
+      } else {
+        window.addEventListener('message', (event) => {
+          if (event.data.event === 'accountsChanged' || event.data.event === 'chainChanged') {
+            window.location.reload();
+          }
+        }, false);
+      }
 
       this.#web3 = new Web3(provider);
 
