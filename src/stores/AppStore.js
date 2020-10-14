@@ -13,6 +13,7 @@ class AppStore {
   minWorkerPeriods = null;
   maxSubStakes = null;
 
+
   constructor() {
     this.stakerStore = new StakerStore();
     this.historyStore = new HistoryStore();
