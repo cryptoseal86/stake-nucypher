@@ -17,7 +17,7 @@ class StakerStore {
     staker.lockedTokens = await contract.methods.getLockedTokens(account, 1).call();
     staker.availableForWithdraw = (new web3.utils.BN(staker.value)).sub(new web3.utils.BN(staker.lockedTokens)).toString();
     if (!isHexNil(staker.worker)) {
-      staker.lastActivePeriod = await contract.methods.getLastActivePeriod(account).call();
+      staker.lastActivePeriod = await contract.methods.getLastCommittedPeriod(account).call();
     }
     staker.address = account;
     this.staker = staker;

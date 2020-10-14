@@ -96,7 +96,7 @@ export default {
         }
       };
     },
-    getLastActivePeriod: () => {
+    getLastCommittedPeriod: () => {
       return {
         call: () => {
           return Promise.resolve('0');
