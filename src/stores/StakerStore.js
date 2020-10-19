@@ -22,6 +22,7 @@ class StakerStore {
     staker.address = account;
     this.staker = staker;
     await this.getSubStakes(account);
+    await this.getFlagsForStaker(account);
   }
 
   async getSubStakes(address) {
@@ -53,6 +54,14 @@ class StakerStore {
     this.staker.substakes = substakes;
   }
 
+  async getFlagsForStaker(address) {
+    const contract = Web3Initilizer.getContractInstance();
+    const web3 = Web3Initilizer.getWeb3();
+    const account = address || (await web3.eth.getAccounts())[0];
+    const flags = await contract.methods.getFlags(account).call();
+    this.staker.flags = flags;
+  }
+
   async setReStake(value) {
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
@@ -60,7 +69,7 @@ class StakerStore {
     await contract.methods.setReStake(value).send({
       from: account
     });
-    this.staker.reStakeDisabled = !value;
+    this.staker.flags.reStake = !value;
   }
 
   async addStake(newStake) {
@@ -89,7 +98,7 @@ class StakerStore {
     }
   }
 
-  async changeWorker(newWorker) {
+  async bondWorker(newWorker) {
     const contract = Web3Initilizer.getContractInstance();
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
@@ -134,7 +143,7 @@ class StakerStore {
       await contract.methods.setWindDown(value).send({
         from: account
       });
-      this.staker.windDown = value;
+      this.staker.flags.windDown = value;
     } catch(e) {
       console.error(e);
     }

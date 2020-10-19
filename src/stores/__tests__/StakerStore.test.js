@@ -31,11 +31,11 @@ describe('StakerStore', () => {
   it('should be able to toggle restaking', async () => {
     await stakerStore.setReStake(true);
     expect(escrowContract.methods.setReStake).toBeCalledWith(true);
-    expect(stakerStore.staker.reStakeDisabled).not.toBeTruthy();
+    expect(stakerStore.staker.flags.reStake).not.toBeTruthy();
 
     await stakerStore.setReStake(false);
     expect(escrowContract.methods.setReStake).toBeCalledWith(false);
-    expect(stakerStore.staker.reStakeDisabled).toBeTruthy();
+    expect(stakerStore.staker.flags.reStake).toBeTruthy();
   });
 
   it('should be able to add stake', async () => {
@@ -50,7 +50,7 @@ describe('StakerStore', () => {
 
   it('should be able to change/detach worker', async () => {
     const workerAddress = '0x25F764929A7D84d04Bb7C9C7AE9e7D6FBdE99C78';
-    await stakerStore.changeWorker({ workerAddress });
+    await stakerStore.bondWorker({ workerAddress });
     expect(escrowContract.methods.bondWorker).toBeCalledWith(workerAddress);
     expect(stakerStore.staker.worker).toBe(workerAddress);
 
@@ -63,11 +63,11 @@ describe('StakerStore', () => {
   it('should be able to set wind down', async () => {
     await stakerStore.setWindDown(true);
     expect(escrowContract.methods.setWindDown).toBeCalledWith(true);
-    expect(stakerStore.staker.windDown).toBe(true);
+    expect(stakerStore.staker.flags.windDown).toBe(true);
 
     await stakerStore.setWindDown(false);
     expect(escrowContract.methods.setWindDown).toBeCalledWith(false);
-    expect(stakerStore.staker.windDown).toBe(false);
+    expect(stakerStore.staker.flags.windDown).toBe(false);
   });
 
   it('should be able to divide stake', async () => {

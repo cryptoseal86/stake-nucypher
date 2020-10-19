@@ -165,7 +165,7 @@ function StakerDashboard(props) {
           </Row>
           <Row className="mt-5">
             {
-              store.stakerStore.staker && store.stakerStore.staker.substakes.length ?
+              store.stakerStore.staker && store.stakerStore.staker.flags && store.stakerStore.staker.substakes.length ?
                 <Col md={6}>
                   <p className="h6 text-center">Restaking</p>
                   {
@@ -174,7 +174,7 @@ function StakerDashboard(props) {
                         { !busySetRestaking ? <>
                           <Toggle
                             data-testid="restaking-toggle"
-                            checked={!store.stakerStore.staker.reStakeDisabled}
+                            checked={store.stakerStore.staker.flags.reStake}
                             onChange={toggleRestaking}>
                           </Toggle>
                         </> : <Loading size={20}></Loading> }
@@ -190,14 +190,14 @@ function StakerDashboard(props) {
                 null
             }
             {
-              store.stakerStore.staker && store.stakerStore.staker.substakes.length ?
+              store.stakerStore.staker && store.stakerStore.staker.flags && store.stakerStore.staker.substakes.length ?
                 <Col md={6}>
                   <p className="h6 text-center">Wind down</p>
                   <div className="h4 text-center">
                     { !busySetWindDown ? <>
                       <Toggle
                         data-testid="winddown-toggle"
-                        checked={store.stakerStore.staker.windDown}
+                        checked={store.stakerStore.staker.flags.windDown}
                         onChange={toggleWindDown}>
                       </Toggle>
                     </> : <Loading size={20}></Loading> }

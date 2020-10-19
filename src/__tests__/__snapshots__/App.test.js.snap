@@ -302,7 +302,7 @@ exports[`<App /> should be able to switch tab 1`] = `
                       class="h4 text-center"
                     >
                       <div
-                        class="react-toggle"
+                        class="react-toggle react-toggle--checked"
                       >
                         <div
                           class="react-toggle-track"
@@ -348,6 +348,7 @@ exports[`<App /> should be able to switch tab 1`] = `
                           class="react-toggle-thumb"
                         />
                         <input
+                          checked=""
                           class="react-toggle-screenreader-only"
                           data-testid="winddown-toggle"
                           type="checkbox"

@@ -6,14 +6,11 @@ const staker = {
   value: "179272623458863595894258",
   confirmedPeriod1: "18309",
   confirmedPeriod2: "18308",
-  reStakeDisabled: true,
   lockReStakeUntilPeriod: "0",
   worker: "0x62DB5DE64644B4EcbB971f0CaCE5aB938951dAd9",
   workerStartPeriod: "18305",
   lastActivePeriod: "0",
-  measureWork: false,
   completedWork: "0",
-  windDown: false,
   reservedSlot2: "0",
   reservedSlot3: "0",
   reservedSlot4: "0",
@@ -24,6 +21,10 @@ const subStakes = [{
   periods: "365",
   lockedValue: "64369154825672790088479",
 }];
+const flags = {
+  windDown: true,
+  reStake: false
+};
 const contractAddress = '0x522910eA010a8cd51C8E8C7cd5821e100dd2385D';
 const fakeEvent = {
   value: Web3.utils.toWei('20'),
@@ -188,7 +189,14 @@ export default {
           return Promise.resolve(Web3.utils.toWei('20000'));
         }
       };
-    })
+    }),
+    getFlags: jest.fn((value) => {
+      return {
+        call: () => {
+          return Promise.resolve(flags);
+        }
+      };
+    }),
   },
   getPastEvents: jest.fn((value) => {
     return new Promise((resolve, reject) => {

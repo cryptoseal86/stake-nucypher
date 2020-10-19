@@ -269,7 +269,7 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
             class="h4 text-center"
           >
             <div
-              class="react-toggle react-toggle--checked"
+              class="react-toggle"
             >
               <div
                 class="react-toggle-track"
@@ -315,7 +315,6 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
                 class="react-toggle-thumb"
               />
               <input
-                checked=""
                 class="react-toggle-screenreader-only"
                 data-testid="restaking-toggle"
                 type="checkbox"
@@ -335,7 +334,7 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
             class="h4 text-center"
           >
             <div
-              class="react-toggle react-toggle--checked"
+              class="react-toggle"
             >
               <div
                 class="react-toggle-track"
@@ -381,7 +380,6 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
                 class="react-toggle-thumb"
               />
               <input
-                checked=""
                 class="react-toggle-screenreader-only"
                 data-testid="winddown-toggle"
                 type="checkbox"
@@ -888,7 +886,7 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
             class="h4 text-center"
           >
             <div
-              class="react-toggle react-toggle--checked"
+              class="react-toggle"
             >
               <div
                 class="react-toggle-track"
@@ -934,7 +932,6 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
                 class="react-toggle-thumb"
               />
               <input
-                checked=""
                 class="react-toggle-screenreader-only"
                 data-testid="restaking-toggle"
                 type="checkbox"
@@ -954,7 +951,7 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
             class="h4 text-center"
           >
             <div
-              class="react-toggle react-toggle--checked"
+              class="react-toggle"
             >
               <div
                 class="react-toggle-track"
@@ -1000,7 +997,6 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
                 class="react-toggle-thumb"
               />
               <input
-                checked=""
                 class="react-toggle-screenreader-only"
                 data-testid="winddown-toggle"
                 type="checkbox"
