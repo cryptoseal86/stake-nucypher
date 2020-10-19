@@ -19,7 +19,7 @@ describe('<AddStake />', () => {
       fireEvent.click(getByText('Stake'));
     });
 
-    expect(onAddStake).toBeCalledWith(expect.objectContaining({ stakeValue: 15000, stakeDuration: 365, restake: true }));
+    expect(onAddStake).toBeCalledWith(expect.objectContaining({ stakeValue: 15000, stakeDuration: 365, infiniteApproval: false }));
   });
 
   it('should validate input from user correctly', async () => {

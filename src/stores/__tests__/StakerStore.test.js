@@ -45,18 +45,18 @@ describe('StakerStore', () => {
     await stakerStore.addStake({ stakeValue: '15000', stakeDuration: 365 });
     expect(tokenContract.methods.allowance).toBeCalledWith(account, escrowContract._address);
     expect(tokenContract.methods.approve).toBeCalledWith(escrowContract._address, Web3.utils.toWei('15000'));
-    expect(escrowContract.methods.deposit).toBeCalledWith(Web3.utils.toWei('15000'), '365');
+    expect(escrowContract.methods.deposit).toBeCalledWith('0x62DB5DE64644B4EcbB971f0CaCE5aB938951dAd9', Web3.utils.toWei('15000'), '365');
   });
 
   it('should be able to change/detach worker', async () => {
     const workerAddress = '0x25F764929A7D84d04Bb7C9C7AE9e7D6FBdE99C78';
     await stakerStore.changeWorker({ workerAddress });
-    expect(escrowContract.methods.setWorker).toBeCalledWith(workerAddress);
+    expect(escrowContract.methods.bondWorker).toBeCalledWith(workerAddress);
     expect(stakerStore.staker.worker).toBe(workerAddress);
 
     const zeroAddress = '0x0000000000000000000000000000000000000000';
     await stakerStore.detachWorker();
-    expect(escrowContract.methods.setWorker).toBeCalledWith(zeroAddress);
+    expect(escrowContract.methods.bondWorker).toBeCalledWith(zeroAddress);
     expect(stakerStore.staker.worker).toBe(zeroAddress);
   });
 

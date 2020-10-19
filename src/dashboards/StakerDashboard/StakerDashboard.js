@@ -70,7 +70,7 @@ function StakerDashboard(props) {
 
   const changeWorker = async (newWorker) => {
     setBusyAddWorker(true);
-    await store.stakerStore.changeWorker(newWorker);
+    await store.stakerStore.bondWorker(newWorker);
     setBusyAddWorker(false);
     toggleEditWorkerPanel();
   };

@@ -126,7 +126,7 @@ export default {
         }
       };
     }),
-    setWorker: jest.fn((value) => {
+    bondWorker: jest.fn((value) => {
       return {
         send: () => {
           return Promise.resolve(true);

@@ -3,79 +3,48 @@
 exports[`<WorkLockDashboard /> should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="worklock-contrainer"
+    class="d-flex justify-content-center"
   >
     <div
-      class="row"
+      class="sk-fading-circle d-inline-block"
+      style="height: 80px; width: 80px;"
     >
       <div
-        class="col-md-4"
-      >
-        <p
-          class="text-center h6"
-        >
-          Total ETH supplied
-        </p>
-      </div>
+        class="sk-circle1 sk-circle"
+      />
       <div
-        class="col-md-4"
-      >
-        <p
-          class="text-center h6"
-        >
-          Worklock Participants
-        </p>
-      </div>
+        class="sk-circle2 sk-circle"
+      />
       <div
-        class="col-md-4"
-      >
-        <p
-          class="text-center h6"
-        >
-          Total NU to distribute
-        </p>
-      </div>
-    </div>
-    <div
-      class="panel row"
-    >
+        class="sk-circle3 sk-circle"
+      />
       <div
-        class="container"
-      >
-        <div
-          class="mt-2 justify-content-center row"
-        />
-        <div
-          class="mt-3 justify-content-center row"
-        >
-          <div
-            class="col"
-          >
-            <p
-              class="h6 text-center"
-            >
-              Unlocked from WorkLock
-            </p>
-            <p
-              class="h4 text-center"
-            >
-              0 
-              <br />
-               wei
-            </p>
-            <div
-              class="text-center d-flex justify-content-center"
-            >
-              <button
-                class="button-action mt-2 btn btn-secondary"
-                type="button"
-              >
-                Refund
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        class="sk-circle4 sk-circle"
+      />
+      <div
+        class="sk-circle5 sk-circle"
+      />
+      <div
+        class="sk-circle6 sk-circle"
+      />
+      <div
+        class="sk-circle7 sk-circle"
+      />
+      <div
+        class="sk-circle8 sk-circle"
+      />
+      <div
+        class="sk-circle9 sk-circle"
+      />
+      <div
+        class="sk-circle10 sk-circle"
+      />
+      <div
+        class="sk-circle11 sk-circle"
+      />
+      <div
+        class="sk-circle12 sk-circle"
+      />
     </div>
   </div>
 </DocumentFragment>

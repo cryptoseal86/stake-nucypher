@@ -15,7 +15,7 @@ function AddStake(props) {
       props.onAddStake(stakeValues);
     }
   };
-  return <Formik onSubmit={onSubmit} initialValues={{ restake: true }} validationSchema={validationSchema}>
+  return <Formik onSubmit={onSubmit} initialValues={{ infiniteApproval: false }} validationSchema={validationSchema}>
     {({
       handleSubmit,
       handleChange,
@@ -24,6 +24,7 @@ function AddStake(props) {
       touched,
       isValid,
       errors,
+      dirty
     }) => (
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row}>
@@ -33,7 +34,7 @@ function AddStake(props) {
           <Col sm={8}>
             <Form.Control id="stake-value" type="number" name="stakeValue" onChange={handleChange} value={values.value} />
             <div className="feedback-placeholder">
-              <Form.Control.Feedback type="invalid" style={{ display: errors.stakeValue && touched.stakeValue ? 'inline' : 'none' }}>{errors.stakeValue}</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid" style={{ display: errors.stakeValue && dirty ? 'inline' : 'none' }}>{errors.stakeValue}</Form.Control.Feedback>
             </div>
           </Col>
         </Form.Group>
@@ -44,13 +45,13 @@ function AddStake(props) {
           <Col sm={8}>
             <Form.Control id="stakeDuration" type="number" name="stakeDuration" onChange={handleChange} value={values.duration} />
             <div className="feedback-placeholder">
-              <Form.Control.Feedback type="invalid" style={{ display: errors.stakeDuration && touched.stakeDuration ? 'inline' : 'none' }}>{errors.stakeDuration}</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid" style={{ display: errors.stakeDuration && dirty ? 'inline' : 'none' }}>{errors.stakeDuration}</Form.Control.Feedback>
             </div>
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 8, offset: 4 }}>
-            <Form.Check label="Restake" name="stakeRestake" defaultChecked={values.restake} onChange={handleChange} value={values.restake} />
+            <Form.Check label="Infinite approval" name="infiniteApproval" defaultChecked={values.infiniteApproval} onChange={handleChange} value={values.infiniteApproval} />
           </Col>
         </Form.Group>
         <div className="d-flex justify-content-center">

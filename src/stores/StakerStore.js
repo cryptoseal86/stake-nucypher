@@ -72,7 +72,7 @@ class StakerStore {
       const allowance = await token.methods.allowance(account, contract._address).call();
       const stakeValue = web3.utils.toWei(newStake.stakeValue.toString());
       if (allowance === '0') {
-        await token.methods.approve(contract._address, stakeValue).send({
+        await token.methods.approve(contract._address, newStake.infiniteApproval ? -1 : stakeValue).send({
           from: account
         });
       } else if (BN(stakeValue).gt(allowance)) {
@@ -80,12 +80,9 @@ class StakerStore {
           from: account
         });
       }
-      await contract.methods.deposit(stakeValue, newStake.stakeDuration.toString()).send({
+      await contract.methods.deposit(account, stakeValue, newStake.stakeDuration.toString()).send({
         from: account
       });
-      if (!newStake.restake) {
-        this.setReStake(false);
-      }
       await this.getStakerInfo();
     } catch(e) {
       console.error(e);
@@ -98,7 +95,7 @@ class StakerStore {
     const account = (await web3.eth.getAccounts())[0];
     if (web3.utils.isAddress(newWorker.workerAddress)) {
       try {
-        await contract.methods.setWorker(newWorker.workerAddress).send({
+        await contract.methods.bondWorker(newWorker.workerAddress).send({
           from: account
         });
         this.staker.worker = newWorker.workerAddress;
@@ -120,7 +117,7 @@ class StakerStore {
     const web3 = Web3Initilizer.getWeb3();
     const account = (await web3.eth.getAccounts())[0];
     try {
-      await contract.methods.setWorker('0x0000000000000000000000000000000000000000').send({
+      await contract.methods.bondWorker('0x0000000000000000000000000000000000000000').send({
         from: account
       });
       this.staker.worker = '0x0000000000000000000000000000000000000000';

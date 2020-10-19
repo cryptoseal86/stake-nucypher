@@ -65,6 +65,6 @@ describe('<StakerDashboard />', () => {
       const { getByText } = render(<StakerDashboard />);
       fireEvent.click(getByText('Detach worker'));
     });
-    expect(escrowContract.methods.setWorker).toBeCalled();
+    expect(escrowContract.methods.bondWorker).toBeCalled();
   });
 });

@@ -73,17 +73,16 @@ exports[`<AddStake /> should render correctly 1`] = `
           class="form-check"
         >
           <input
-            checked=""
             class="form-check-input"
-            name="stakeRestake"
+            name="infiniteApproval"
             type="checkbox"
-            value="true"
+            value="false"
           />
           <label
             class="form-check-label"
             title=""
           >
-            Restake
+            Infinite approval
           </label>
         </div>
       </div>
@@ -179,17 +178,16 @@ exports[`<AddStake /> should validate input from user correctly 1`] = `
           class="form-check"
         >
           <input
-            checked=""
             class="form-check-input"
-            name="stakeRestake"
+            name="infiniteApproval"
             type="checkbox"
-            value="true"
+            value="false"
           />
           <label
             class="form-check-label"
             title=""
           >
-            Restake
+            Infinite approval
           </label>
         </div>
       </div>
@@ -286,17 +284,16 @@ exports[`<AddStake /> should validate input from user correctly 2`] = `
           class="form-check"
         >
           <input
-            checked=""
             class="form-check-input"
-            name="stakeRestake"
+            name="infiniteApproval"
             type="checkbox"
-            value="true"
+            value="false"
           />
           <label
             class="form-check-label"
             title=""
           >
-            Restake
+            Infinite approval
           </label>
         </div>
       </div>
