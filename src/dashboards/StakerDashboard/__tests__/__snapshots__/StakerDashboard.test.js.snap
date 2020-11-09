@@ -448,6 +448,16 @@ exports[`<StakerDashboard /> should show modal on add stake button click 1`] = `
           <div
             class="action"
           />
+          <div
+            class="action d-flex justify-content-center"
+          >
+            <button
+              class="primary btn btn-primary"
+              type="button"
+            >
+              Follow on Telegram 💬
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1065,6 +1075,16 @@ exports[`<StakerDashboard /> should show modal on set worker button click 1`] = 
           <div
             class="action"
           />
+          <div
+            class="action d-flex justify-content-center"
+          >
+            <button
+              class="primary btn btn-primary"
+              type="button"
+            >
+              Follow on Telegram 💬
+            </button>
+          </div>
         </div>
       </div>
     </div>
