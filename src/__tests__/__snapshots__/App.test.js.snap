@@ -417,6 +417,16 @@ exports[`<App /> should be able to switch tab 1`] = `
                     <div
                       class="action"
                     />
+                    <div
+                      class="action d-flex justify-content-center"
+                    >
+                      <button
+                        class="primary btn btn-primary"
+                        type="button"
+                      >
+                        Follow on Telegram 💬
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
