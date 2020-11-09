@@ -61,6 +61,14 @@ function StakerDashboard(props) {
     setBusySetWindDown(false);
   };
 
+  const openTelegramBot = async (event) => {
+    const url = `https://t.me/NuCypherMonitorBot?start=${store.stakerStore.staker.address}`
+    const win = window.open(url, '_blank');
+    if (win != null) {
+      win.focus();
+    }
+  }
+
   const addStake = async (newStake) => {
     setBusyAddStake(true);
     await store.stakerStore.addStake(newStake);
@@ -249,6 +257,7 @@ function StakerDashboard(props) {
                     <WorkerActivity></WorkerActivity>
                   </p>
                   <div className="action"></div>
+                  <div className="action d-flex justify-content-center"><Button className="primary" onClick={openTelegramBot}>Follow on Telegram 💬</Button></div>
                 </Col>
               </> : null
             }
