@@ -57,7 +57,11 @@ function Stakes(props) {
             <div className="table-row-column table-center">{dateFormat(substake.firstPeriod)} - {dateFormat(substake.lastPeriod)}</div>
             <div className="table-row-column table-center">
               <Button data-testid={ `divide-button-${i}` } className="m-1" variant="secondary" size="sm" onClick={toggleDivideRow(i)}>Divide</Button>
-              <Button data-testid={ `prolong-button-${i}` } className="m-1" variant="secondary" size="sm" onClick={toggleProlongRow(i)}>Prolong</Button>
+              {
+                substake.remainingDuration !== 0 ? <>
+                  <Button data-testid={ `prolong-button-${i}` } className="m-1" variant="secondary" size="sm" onClick={toggleProlongRow(i)}>Prolong</Button>
+                </> : null
+              }
             </div>
           </div>
           <Collapse in={divideCollapse[i]} className="mt-4">
@@ -69,15 +73,19 @@ function Stakes(props) {
               </Row>
             </Container>
           </Collapse>
-          <Collapse in={prolongCollapse[i]} className="mt-4">
-            <Container>
-              <Row>
-                <Col>
-                  <ProlongSubStake subStake={substake} onSubStakeProlong={onSubStakeProlong.bind(substake)}></ProlongSubStake>
-                </Col>
-              </Row>
-            </Container>
-          </Collapse>
+          {
+            substake.remainingDuration !== 0 ? <>
+              <Collapse in={prolongCollapse[i]} className="mt-4">
+                <Container>
+                  <Row>
+                    <Col>
+                      <ProlongSubStake subStake={substake} onSubStakeProlong={onSubStakeProlong.bind(substake)}></ProlongSubStake>
+                    </Col>
+                  </Row>
+                </Container>
+              </Collapse>
+            </> : null
+          }
         </Fragment>)
       }
     </div>

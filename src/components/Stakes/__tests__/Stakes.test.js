@@ -12,14 +12,14 @@ describe('<Stakes />', () => {
       firstPeriod: new Date(300 * 24 * 60 * 60 * 1000),
       lastPeriod: new Date(305 * 24 * 60 * 60 * 1000),
       value: Web3.utils.toWei('15000'),
-      remainingDuration: '245'
+      remainingDuration: 245
     }),
     new SubStake({
       index: 1,
       firstPeriod: new Date(1600 * 24 * 60 * 60 * 1000),
       lastPeriod: new Date(1605 * 24 * 60 * 60 * 1000),
       value: Web3.utils.toWei('15000'),
-      remainingDuration: '365'
+      remainingDuration: 365
     })
   ];
 
@@ -38,6 +38,18 @@ describe('<Stakes />', () => {
     await wait(() => {
       fireEvent.click(getByTestId('prolong-button-0'));
     });
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should not show prolong button for expired stakes', () => {
+    substakes.push(new SubStake({
+      index: 0,
+      firstPeriod: new Date(300 * 24 * 60 * 60 * 1000),
+      lastPeriod: new Date(305 * 24 * 60 * 60 * 1000),
+      value: Web3.utils.toWei('15000'),
+      remainingDuration: 0
+    }));
+    const { getByTestId, asFragment } = render(<Stakes substakes={substakes} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

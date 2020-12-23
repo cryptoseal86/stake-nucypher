@@ -1019,6 +1019,681 @@ exports[`<Stakes /> should be able to toggle panels 2`] = `
 </DocumentFragment>
 `;
 
+exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="table"
+    >
+      <div
+        class="table-row table-header"
+      >
+        <div
+          class="table-row-column table-row-index"
+        >
+          #
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          Value
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          Remaining
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          Enactment
+        </div>
+        <div
+          class="table-row-column table-center"
+        />
+      </div>
+      <div
+        class="table-row"
+      >
+        <div
+          class="table-row-column table-row-index"
+        >
+          0
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          15000.0000 NU
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          245 periods
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          Oct 28, 70 - Nov 2, 70
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="divide-button-0"
+            type="button"
+          >
+            Divide
+          </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="prolong-button-0"
+            type="button"
+          >
+            Prolong
+          </button>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="mt-2 form-group row"
+              >
+                <div
+                  class="col-sm-3"
+                >
+                  <input
+                    class="form-control form-control-sm"
+                    data-testid="first-substake-value"
+                    name="firstSubstakeValue"
+                    type="text"
+                    value="7500"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-center col-sm-6"
+                  style="padding-top: 8px;"
+                >
+                  <div
+                    class="rc-slider"
+                  >
+                    <div
+                      class="rc-slider-rail"
+                    />
+                    <div
+                      class="rc-slider-track"
+                      style="left: 0%; width: 50%;"
+                    />
+                    <div
+                      class="rc-slider-step"
+                    />
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="50"
+                      class="rc-slider-handle"
+                      role="slider"
+                      style="left: 50%; transform: translateX(-50%);"
+                      tabindex="0"
+                    />
+                    <div
+                      class="rc-slider-mark"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="col-sm-3"
+                >
+                  <input
+                    class="form-control form-control-sm"
+                    data-testid="second-substake-value"
+                    name="secondSubstakeValue"
+                    type="text"
+                    value="7500"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                >
+                  Extend for
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    name="stakeDuration"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <label
+                  class="form-label col-form-label col-md-2"
+                >
+                  periods
+                </label>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Divide
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-prolong-duration"
+                >
+                  Extend for
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-prolong-duration"
+                    name="prolongDurationValue"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <label
+                  class="form-label col-form-label col-md-4"
+                >
+                  periods
+                </label>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Prolong
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="table-row"
+      >
+        <div
+          class="table-row-column table-row-index"
+        >
+          1
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          15000.0000 NU
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          365 periods
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          May 20, 74 - May 25, 74
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="divide-button-1"
+            type="button"
+          >
+            Divide
+          </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="prolong-button-1"
+            type="button"
+          >
+            Prolong
+          </button>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="mt-2 form-group row"
+              >
+                <div
+                  class="col-sm-3"
+                >
+                  <input
+                    class="form-control form-control-sm"
+                    data-testid="first-substake-value"
+                    name="firstSubstakeValue"
+                    type="text"
+                    value="7500"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-center col-sm-6"
+                  style="padding-top: 8px;"
+                >
+                  <div
+                    class="rc-slider"
+                  >
+                    <div
+                      class="rc-slider-rail"
+                    />
+                    <div
+                      class="rc-slider-track"
+                      style="left: 0%; width: 50%;"
+                    />
+                    <div
+                      class="rc-slider-step"
+                    />
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="50"
+                      class="rc-slider-handle"
+                      role="slider"
+                      style="left: 50%; transform: translateX(-50%);"
+                      tabindex="0"
+                    />
+                    <div
+                      class="rc-slider-mark"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="col-sm-3"
+                >
+                  <input
+                    class="form-control form-control-sm"
+                    data-testid="second-substake-value"
+                    name="secondSubstakeValue"
+                    type="text"
+                    value="7500"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                >
+                  Extend for
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    name="stakeDuration"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <label
+                  class="form-label col-form-label col-md-2"
+                >
+                  periods
+                </label>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Divide
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-prolong-duration"
+                >
+                  Extend for
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-prolong-duration"
+                    name="prolongDurationValue"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <label
+                  class="form-label col-form-label col-md-4"
+                >
+                  periods
+                </label>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Prolong
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="table-row"
+      >
+        <div
+          class="table-row-column table-row-index"
+        >
+          2
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          15000.0000 NU
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          0 periods
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          Oct 28, 70 - Nov 2, 70
+        </div>
+        <div
+          class="table-row-column table-center"
+        >
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="divide-button-2"
+            type="button"
+          >
+            Divide
+          </button>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="mt-2 form-group row"
+              >
+                <div
+                  class="col-sm-3"
+                >
+                  <input
+                    class="form-control form-control-sm"
+                    data-testid="first-substake-value"
+                    name="firstSubstakeValue"
+                    type="text"
+                    value="7500"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-center col-sm-6"
+                  style="padding-top: 8px;"
+                >
+                  <div
+                    class="rc-slider"
+                  >
+                    <div
+                      class="rc-slider-rail"
+                    />
+                    <div
+                      class="rc-slider-track"
+                      style="left: 0%; width: 50%;"
+                    />
+                    <div
+                      class="rc-slider-step"
+                    />
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="50"
+                      class="rc-slider-handle"
+                      role="slider"
+                      style="left: 50%; transform: translateX(-50%);"
+                      tabindex="0"
+                    />
+                    <div
+                      class="rc-slider-mark"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="col-sm-3"
+                >
+                  <input
+                    class="form-control form-control-sm"
+                    data-testid="second-substake-value"
+                    name="secondSubstakeValue"
+                    type="text"
+                    value="7500"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                >
+                  Extend for
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    name="stakeDuration"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <label
+                  class="form-label col-form-label col-md-2"
+                >
+                  periods
+                </label>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Divide
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`<Stakes /> should render correctly 1`] = `
 <DocumentFragment>
   <div
