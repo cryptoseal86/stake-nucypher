@@ -177,6 +177,28 @@ class StakerStore {
     }
   }
 
+  async mergeSubStake(index, mergeWithIndex) {
+    const contract = Web3Initilizer.getContractInstance();
+    const web3 = Web3Initilizer.getWeb3();
+    const account = (await web3.eth.getAccounts())[0];
+    try {
+      const firstStake = this.staker.substakes[index];
+      const secondStake = this.staker.substakes[mergeWithIndex];
+
+      if (firstStake.remainingDuration !== secondStake.remainingDuration) {
+        const [minDurationStake, maxDurationStake] = firstStake.remainingDuration > secondStake.remainingDuration ? [secondStake, firstStake] : [firstStake, secondStake];
+        await this.prolongStake(minDurationStake.index, maxDurationStake.remainingDuration - minDurationStake.remainingDuration);
+      }
+
+      await contract.methods.mergeStake(index, mergeWithIndex).send({
+        from: account
+      });
+      await this.getSubStakes(account);
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
   async withdraw(withdrawValue) {
     const web3 = Web3Initilizer.getWeb3();
     const address = (await web3.eth.getAccounts())[0];

@@ -140,6 +140,10 @@ function StakerDashboard(props) {
   const onSubStakeProlong = function(event) {
     return store.stakerStore.prolongStake(this.index, event.prolongDurationValue);
   };
+
+  const onSubStakeMerge = function(event) {
+    return store.stakerStore.mergeSubStake(this.index, event.mergeIdValue);
+  };
   const onTabChange = props.onTabChange ? props.onTabChange : () => {};
   return store.web3Initilized ? (<>
     <Row className="panel">
@@ -295,7 +299,7 @@ function StakerDashboard(props) {
             </Row>
             <Row>
               <Col>
-                <Stakes substakes={store.stakerStore.staker.substakes} onSubStakeDivide={onSubStakeDivide} onSubStakeProlong={onSubStakeProlong}></Stakes>
+                <Stakes substakes={store.stakerStore.staker.substakes} onSubStakeDivide={onSubStakeDivide} onSubStakeProlong={onSubStakeProlong} onSubStakeMerge={onSubStakeMerge}></Stakes>
               </Col>
             </Row>
           </> : null

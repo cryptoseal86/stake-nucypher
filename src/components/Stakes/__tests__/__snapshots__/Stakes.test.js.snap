@@ -75,6 +75,13 @@ exports[`<Stakes /> should be able to toggle panels 1`] = `
           >
             Prolong
           </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-0"
+            type="button"
+          >
+            Merge
+          </button>
         </div>
       </div>
       <div
@@ -271,6 +278,61 @@ exports[`<Stakes /> should be able to toggle panels 1`] = `
         </div>
       </div>
       <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
         class="table-row"
       >
         <div
@@ -309,6 +371,13 @@ exports[`<Stakes /> should be able to toggle panels 1`] = `
             type="button"
           >
             Prolong
+          </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-1"
+            type="button"
+          >
+            Merge
           </button>
         </div>
       </div>
@@ -504,6 +573,61 @@ exports[`<Stakes /> should be able to toggle panels 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -583,6 +707,13 @@ exports[`<Stakes /> should be able to toggle panels 2`] = `
             type="button"
           >
             Prolong
+          </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-0"
+            type="button"
+          >
+            Merge
           </button>
         </div>
       </div>
@@ -781,6 +912,61 @@ exports[`<Stakes /> should be able to toggle panels 2`] = `
         </div>
       </div>
       <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
         class="table-row"
       >
         <div
@@ -819,6 +1005,13 @@ exports[`<Stakes /> should be able to toggle panels 2`] = `
             type="button"
           >
             Prolong
+          </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-1"
+            type="button"
+          >
+            Merge
           </button>
         </div>
       </div>
@@ -1008,6 +1201,61 @@ exports[`<Stakes /> should be able to toggle panels 2`] = `
                   type="submit"
                 >
                   Prolong
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
                 </button>
               </div>
             </form>
@@ -1094,6 +1342,13 @@ exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
           >
             Prolong
           </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-0"
+            type="button"
+          >
+            Merge
+          </button>
         </div>
       </div>
       <div
@@ -1282,6 +1537,61 @@ exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
                   type="submit"
                 >
                   Prolong
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
                 </button>
               </div>
             </form>
@@ -1328,6 +1638,13 @@ exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
           >
             Prolong
           </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-1"
+            type="button"
+          >
+            Merge
+          </button>
         </div>
       </div>
       <div
@@ -1523,6 +1840,61 @@ exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
         </div>
       </div>
       <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
         class="table-row"
       >
         <div
@@ -1554,6 +1926,13 @@ exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
             type="button"
           >
             Divide
+          </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-2"
+            type="button"
+          >
+            Merge
           </button>
         </div>
       </div>
@@ -1683,6 +2062,61 @@ exports[`<Stakes /> should not show prolong button for expired stakes 1`] = `
                   type="submit"
                 >
                   Divide
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
                 </button>
               </div>
             </form>
@@ -1769,6 +2203,13 @@ exports[`<Stakes /> should render correctly 1`] = `
           >
             Prolong
           </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-0"
+            type="button"
+          >
+            Merge
+          </button>
         </div>
       </div>
       <div
@@ -1957,6 +2398,61 @@ exports[`<Stakes /> should render correctly 1`] = `
                   type="submit"
                 >
                   Prolong
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
                 </button>
               </div>
             </form>
@@ -2003,6 +2499,13 @@ exports[`<Stakes /> should render correctly 1`] = `
           >
             Prolong
           </button>
+          <button
+            class="m-1 btn btn-secondary btn-sm"
+            data-testid="merge-button-1"
+            type="button"
+          >
+            Merge
+          </button>
         </div>
       </div>
       <div
@@ -2191,6 +2694,61 @@ exports[`<Stakes /> should render correctly 1`] = `
                   type="submit"
                 >
                   Prolong
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 collapse container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col"
+          >
+            <form
+              class=""
+            >
+              <div
+                class="form-group row"
+              >
+                <label
+                  class="form-label col-form-label col-md-2 offset-md-2"
+                  for="substake-merge-id"
+                >
+                  Merge with #
+                </label>
+                <div
+                  class="col-md-4"
+                >
+                  <input
+                    class="form-control"
+                    id="substake-merge-id"
+                    name="prolongMergeValue"
+                    type="number"
+                    value=""
+                  />
+                  <div
+                    class="feedback-placeholder"
+                  >
+                    <div
+                      class="invalid-feedback"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-center"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Merge
                 </button>
               </div>
             </form>

@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 import { Container, Row, Col, Button, Collapse } from 'react-bootstrap';
 import DivideSubStake from '../DivideSubStake/DivideSubStake';
 import ProlongSubStake from '../ProlongSubStake/ProlongSubStake';
+import MergeSubStake from '../MergeSubStake/MergeSubStake';
 import { toUiNumberOfTokens } from '../../utils/utils';
 import './Stakes.scss';
 
@@ -13,6 +14,7 @@ function dateFormat(date) {
 function Stakes(props) {
   const [divideCollapse, setDivideCollapse] = useState([]);
   const [prolongCollapse, setProlongCollapse] = useState([]);
+  const [mergeCollapse, setMergeCollapse] = useState([]);
 
   function toggleDivideRow(index) {
     return () => {
@@ -36,8 +38,20 @@ function Stakes(props) {
     };
   };
 
+  function toggleMergeRow(index) {
+    return () => {
+      setMergeCollapse(prevState => {
+        const newState = [...prevState];
+        newState[index] = !prevState[index];
+        return newState;
+      });
+      if (mergeCollapse[index]) toggleMergeRow(index)();
+    };
+  }
+
   const onSubStakeDivide = props.onSubStakeDivide ? props.onSubStakeDivide : () => {};
   const onSubStakeProlong = props.onSubStakeProlong ? props.onSubStakeProlong : () => {};
+  const onSubStakeMerge = props.onSubStakeMerge ? props.onSubStakeMerge : () => {};
   return <Container>
     <div className="table">
       <div className="table-row table-header">
@@ -62,6 +76,7 @@ function Stakes(props) {
                   <Button data-testid={ `prolong-button-${i}` } className="m-1" variant="secondary" size="sm" onClick={toggleProlongRow(i)}>Prolong</Button>
                 </> : null
               }
+              <Button data-testid={ `merge-button-${i}` } className="m-1" variant="secondary" size="sm" onClick={toggleMergeRow(i)}>Merge</Button>
             </div>
           </div>
           <Collapse in={divideCollapse[i]} className="mt-4">
@@ -86,6 +101,15 @@ function Stakes(props) {
               </Collapse>
             </> : null
           }
+          <Collapse in={mergeCollapse[i]} className="mt-4">
+            <Container>
+              <Row>
+                <Col>
+                  <MergeSubStake subStake={substake} onSubStakeMerge={onSubStakeMerge.bind(substake)}></MergeSubStake>
+                </Col>
+              </Row>
+            </Container>
+          </Collapse>
         </Fragment>)
       }
     </div>
